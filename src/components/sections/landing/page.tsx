@@ -1,10 +1,12 @@
 import girlImg from 'assets/img/sections/landing/character.jpg'
 import logo from 'assets/img/sections/landing/logo.jpg'
-import reWord from 'assets/img/sections/landing/re.png'
+import rLetter from 'assets/img/sections/landing/r.png'
+import eLetter from 'assets/img/sections/landing/e.png'
 import reGen from 'assets/img/sections/landing/re-gen.jpg'
 import { motion } from "framer-motion"
 import LoadingPage from '../loading/page'
 import { useEffect, useState } from 'react'
+import { Transition } from '@/components/animation/slideIn'
 
 
 function GirlImg () {
@@ -23,10 +25,18 @@ function Logo () {
     )
 }
 
-function REImg () {
+function RLetter () {
     return (
         <div>
-            <img src={reWord}></img>
+            <img src={rLetter} className='h-[150px]'></img>
+        </div>
+    )
+}
+
+function ELetter () {
+    return (
+        <div>
+            <img src={eLetter} className='h-[150px]'></img>
         </div>
     )
 }
@@ -72,16 +82,6 @@ export default function LandingPage() {
         }
     };
 
-    const itemVariants = {
-        hidden: { opacity: 0, x: 0, y: 0 },
-        visible: custom => ({
-            opacity: 1,
-            x: custom.x || 0,
-            y: custom.y || 0,
-            transition: { duration: 1, delay: custom.delay || 0 }
-        })
-    };
-
     const loadingVariants = {
         initial: { opacity: 1, y: 0 },
         animate: { opacity: 0, y: 50, transition: { duration: 0.5 } }
@@ -106,20 +106,21 @@ export default function LandingPage() {
                     initial="hidden"
                     animate="visible"
                 >
-                    <motion.div className='absolute' variants={itemVariants} custom={{ delay: 1 }}>
+                    <Transition className='absolute' custom={{ delay: 1 }}>
                         <Logo />
-                    </motion.div>
-                    <motion.div className='absolute' variants={itemVariants} custom={{ delay: 1.5, x: -200 }}>
-                        <REImg />
-                    </motion.div>
-                    <motion.div className='absolute' variants={itemVariants} custom={{ delay: 0.5 }}>
+                    </Transition>
+                    <Transition className='absolute' custom={{ delay: 1.5, x: -300 }}>
+                        <RLetter />
+                        <ELetter />
+                    </Transition>
+                    <Transition className='absolute' custom={{ delay: 0.5 }}>
                         <GirlImg />
-                    </motion.div>
-                    <motion.div className='absolute' variants={itemVariants} custom={{ delay: 2.5, x: 300 }}>
+                    </Transition>
+                    <Transition className='absolute' custom={{ delay: 2.5, x: 300 }}>
                         <div className='transform translate-y-[150px]'>
                             <REGenImg />
                         </div>
-                    </motion.div>
+                    </Transition>
                 </motion.div>
             )}
         </div>
