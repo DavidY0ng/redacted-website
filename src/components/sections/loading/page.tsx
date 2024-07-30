@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Progress } from "../../components/ui/progress"
+import { Progress } from "../../ui/progress"
+import { AnimatedText } from "@/components/animation/staggerText";
 
 function LoadingProgress() {
   const [progress, setProgress] = React.useState(0)
@@ -23,18 +24,21 @@ function LoadingProgress() {
 
   return (
     <div className="flex items-center space-x-5">
-        <Progress value={progress} className="w-[500px] bg-transparent" />
+        <Progress value={progress} className="w-[500px] bg-transparent animate-pulse" />
         <LoadingFont progress={progress} />
     </div>
    
     )
 }
 
-function LoadingFont({ progress }) {
+function LoadingFont({ progress}:{progress:number}) {
+    const letters = "LOADING"
+    
     return (
         <div>
-            <div className="text-lg text-white">
-                LOADING {Math.round(progress)}%
+            <div className="text-lg text-white flex">
+                    <AnimatedText text={letters} repeatDelay={5000} className="animate-pulse"></AnimatedText>
+                <span className="ml-2">{Math.round(progress)}%</span>
             </div>
         </div>
     )
@@ -48,9 +52,8 @@ export default function LoadingPage() {
                     <LoadingProgress />
                 </div>
             </div>
-            
-           
         </div>
       
     )
 }
+

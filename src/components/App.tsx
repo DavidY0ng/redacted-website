@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import LoadingPage from '../components/loading/page'
+import LoadingPage from "./sections/loading/page";
 
 function App() {
     return (
