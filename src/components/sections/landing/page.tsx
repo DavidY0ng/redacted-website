@@ -2,6 +2,7 @@ import girlImg from 'assets/img/sections/landing/character.jpg'
 import logo from 'assets/img/sections/landing/logo.jpg'
 import reWord from 'assets/img/sections/landing/re.png'
 import reGen from 'assets/img/sections/landing/re-gen.jpg'
+import { motion } from "framer-motion"
 
 
 function GirlImg () {
@@ -37,23 +38,46 @@ function REGenImg () {
 }
 
 export default function LandingPage() {
-    return (
-        <div className='relative w-full h-screen flex justify-center items-center'>
-            
-            <div className='absolute'>
-                <Logo />
-            </div>
-         
-            <div className='absolute transform translate-x-[-200px]'>
-                <REImg />
-            </div>
-            <div className='absolute'>
-                <GirlImg />
-            </div>
-            <div className='absolute transform translate-x-[300px]'>
-                <REGenImg />
-            </div>
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.5,
+                staggerChildren: 0.5
+            }
+        }
+    };
 
-        </div>
-    )
+    const itemVariants = {
+        hidden: { opacity: 0, x: 0 },
+        visible: custom => ({
+            opacity: 1,
+            x: custom.x || 0,
+            transition: { duration: 1, delay: custom.delay || 0 }
+        })
+    };
+
+    return (
+        <motion.div 
+            className='relative w-full h-screen flex justify-center items-center'
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+        >
+            
+            <motion.div className='absolute' variants={itemVariants} custom={{ delay: 1 }}>
+                <Logo />
+            </motion.div>
+            <motion.div className='absolute' variants={itemVariants} custom={{ delay: 1.5, x: -200 }}>
+                <REImg />
+            </motion.div>
+            <motion.div className='absolute' variants={itemVariants} custom={{ delay: 0.5 }}>
+                <GirlImg />
+            </motion.div>
+            <motion.div className='absolute' variants={itemVariants} custom={{ delay: 1.5, x: 300 }}>
+                <REGenImg />
+            </motion.div>
+        </motion.div>
+    );
 }
