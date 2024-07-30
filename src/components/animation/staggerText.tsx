@@ -16,7 +16,7 @@ type AnimatedTextProps = {
   const defaultAnimations = {
     hidden: {
       opacity: 0,
-      y: -5,
+      y: 0,
     },
     visible: {
       opacity: 1,
