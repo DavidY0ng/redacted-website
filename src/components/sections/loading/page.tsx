@@ -96,15 +96,10 @@ function LoadingTrapezium() {
 
 export default function LoadingPage() {
     return (
-        <div className="bg-red-700 h-screen relative">
-            <div className="absolute bottom-[20%] left-[10%]">
-                <div className="flex items-center space-x-5">
-                    <LoadingProgress />
-                    <LoadingTrapezium />
-                </div>
-            </div>
+        <div className="flex items-center space-x-5">
+            <LoadingProgress />
+            <LoadingTrapezium />
         </div>
-      
     )
 }
 

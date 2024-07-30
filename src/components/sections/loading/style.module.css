@@ -1,7 +1,6 @@
 .trapeziumWrapper {
     position: relative;
     width: 505px;
-    translate-x: 10;
     overflow: hidden;
   }
   
