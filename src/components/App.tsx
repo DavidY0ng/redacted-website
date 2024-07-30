@@ -1,18 +1,12 @@
-import { Canvas } from '@react-three/fiber'
+import { motion } from "framer-motion";
+import LoadingPage from "./sections/loading/page";
 
 function App() {
-  return (
-    <div id="canvas-container">
-      <Canvas>
-        <ambientLight intensity={0.1} />
-        <directionalLight color="red" position={[0, 0, 5]} />
-        <mesh>
-          <boxGeometry />
-          <meshStandardMaterial />
-        </mesh>
-      </Canvas>
-    </div>
-  )
+    return (
+        <div className="">
+            <LoadingPage />
+        </div>
+    )
 }
 
 export default App
