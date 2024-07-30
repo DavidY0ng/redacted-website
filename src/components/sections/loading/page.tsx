@@ -69,7 +69,7 @@ function LoadingTrapezium() {
     while (true) {
       await controls.start({ opacity: 0, transition: { duration: 0.2 } });
       await controls.start({ opacity: 1, transition: { duration: 0.2 } });
-      await new Promise((resolve) => setTimeout(resolve, Math.random() * 2000));
+      await new Promise((resolve) => setTimeout(resolve, Math.random() * 1500));
     }
   };
 
