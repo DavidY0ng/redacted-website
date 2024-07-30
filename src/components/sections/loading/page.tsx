@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Progress } from "../../ui/progress"
 import { AnimatedText } from "@/components/animation/staggerText";
+import style from './style.module.css'
 
 function LoadingProgress() {
   const [progress, setProgress] = React.useState(0)
@@ -24,7 +25,13 @@ function LoadingProgress() {
 
   return (
     <div className="flex items-center space-x-5">
-        <Progress value={progress} className="w-[500px] bg-transparent animate-pulse" />
+          <div className={style.trapeziumWrapper}>
+          <div className={style.progressBar} style={{ width: `${progress}%` }}>
+
+            <Progress value={progress} className="w-[500px] border-b-2 border-r-2 animate-pulse" />
+          </div>
+          </div>
+        
         <LoadingFont progress={progress} />
     </div>
    

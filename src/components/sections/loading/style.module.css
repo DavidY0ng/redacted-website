@@ -1,0 +1,25 @@
+.trapeziumWrapper {
+    position: relative;
+    width: 505px;
+    translate-x: 10;
+    overflow: hidden;
+  }
+  
+  .progressBar {
+    height: 100%;
+    margin-left: -10px;
+    transform: skewX(-50deg); /* Adjust the skew angle to make the trapezium */
+  }
+  
+  /* .progressBar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    background: inherit;
+    transform: skewX(-50deg); 
+    transform-origin: bottom right;
+  } */
+  

@@ -59,7 +59,7 @@ type AnimatedTextProps = {
         controls.start("hidden");
       }
   
-      return () => clearTimeout(timeout);
+      return () => clearInterval(timeout);
     }, [isInView]);
   
     return (
