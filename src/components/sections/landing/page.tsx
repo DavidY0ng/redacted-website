@@ -82,6 +82,7 @@ export default function LandingPage() {
         }
     };
 
+
     const loadingVariants = {
         initial: { opacity: 1, y: 0 },
         animate: { opacity: 0, y: 50, transition: { duration: 0.5 } }
