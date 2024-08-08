@@ -5,8 +5,9 @@ import Redacted from "./sections/sandbox/page";
 function App() {
     return (
         <div className="">
-            <Redacted />
+          
             <LandingPage />
+            <Redacted />
           
         </div>
     )

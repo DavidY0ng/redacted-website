@@ -2,10 +2,13 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import r from 'assets/img/sections/landing/r.png';
 import e from 'assets/img/sections/landing/e.png';
+import './style.css'
+import ConveroFont from '../../../assets/font/CONVERO.woff';
+
 
 function CompleteWord() {
     return (
-        <div className='text-[60px] h1 font-bold'>
+        <div className='text-[60px] h1 font-bold font-convero'>
             DACTED
         </div>
     );
@@ -15,44 +18,49 @@ export default function Redacted() {
     const { scrollY } = useScroll();
     
     const eRight = useTransform(scrollY, 
-        [0, 300, 600], 
-        ['0%', '100%', '100%']
+        [0, 1500, 1900], 
+        ['-65px', '3px', '3px']
     );
     
     const eTop = useTransform(scrollY, 
-        [500, 800], 
-        ['90px', '0px']
+        [1600, 2000], 
+        ['60px', '0px']
     );
 
     const completeWordOpacity = useTransform(scrollY, 
-        [1200, 1800], 
+        [2000, 2600], 
         [0, 1]
     );
 
     return (
         <div className='h-[200vh]'>
-            <div className='flex items-center flex-col h-[2500px] bg-gray-500'>
-                <div className='sticky top-[50%] text-[60px] h1'>
-                    R
-                </div>
-                <motion.div 
-                    className='sticky top-[50%] text-[60px] h1 font-bold'
-                    style={{ 
-                        x: eRight,
-                        y: eTop
-                    }}
-                >
-                    E
-                </motion.div>
-                <motion.div 
-                    className='sticky top-[50%] text-[60px] h1 font-bold'
-                    style={{ 
-                        opacity: completeWordOpacity
-                    }}
-                >
-                    <CompleteWord />
-                </motion.div>
+    <div className='flex flex-col h-[2500px] bg-gray-500 text-white items-center'>
+
+        <div className='flex sticky top-[50%]'>
+            <div className='text-[60px] h1 font-convero'>
+                R
             </div>
+            <motion.div 
+                className='text-[60px] h1 font-bold font-convero'
+                style={{ 
+                    x: eRight,
+                    y: eTop
+                }}
+            >
+                E
+            </motion.div>
+            <motion.div 
+                className='text-[60px] h1 font-bold ml-[10px]'
+                style={{ 
+                    opacity: completeWordOpacity
+                }}
+            >
+                <CompleteWord />
+            </motion.div>
         </div>
+        
+    </div>
+</div>
+
     );
 }
