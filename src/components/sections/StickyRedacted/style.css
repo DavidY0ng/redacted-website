@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Convero';
+    src: url('../../../assets/font/CONVERO.woff') format('woff');
+  }
+  
+  .font-convero {
+    font-family: 'Convero';
+  }
