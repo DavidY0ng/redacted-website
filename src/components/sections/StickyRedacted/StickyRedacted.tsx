@@ -35,7 +35,7 @@ export default function Redacted() {
 
     return (
         <div className='text-white'>
-            <Transition className={''} custom={{ delay: 2, x: 300 }}>
+            <Transition className={''} custom={{ delay: 2,}}>
             
                     <div className='text-[160px] h1 font-convero leading-none '>
                         R

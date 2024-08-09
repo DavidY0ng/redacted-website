@@ -33,7 +33,7 @@ function REGenImg () {
 
 export default function MainImage() {
     return (
-        <div className='relative z-0 flex justify-center bg-gray-500 items-center h-screen'>
+        <div className='relative z-0 flex justify-center items-center h-screen'>
             <Transition className='absolute' custom={{ delay: 1 }}>
                 <Logo />
             </Transition>
