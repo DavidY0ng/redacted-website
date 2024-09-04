@@ -25,8 +25,8 @@ export default function LandingPage() {
     };
 
     return (
-        <div className="h-[300vh] bg-red-600 w-full">
-             {loadingComplete && (
+        <div className="h-screen w-full bg-red-600">
+             {/* {loadingComplete && (
                 <div className="sticky top-[50%]  z-10 h-0 w-full">
                     <motion.div  variants={containerVariants}
                         initial="hidden"
@@ -35,7 +35,7 @@ export default function LandingPage() {
                             <StickyRedacted />
                     </motion.div>
                 </div>
-             )}
+             )} */}
            
 
             <div className='relative w-full h-[100vh] flex items-center'>
