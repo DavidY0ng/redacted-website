@@ -6,6 +6,7 @@ import logo from 'assets/img/sections/landing/eye.png'
 import reGen from 'assets/img/sections/landing/re-gen.png'
 import mobileReGen from 'assets/img/sections/landing/mobile/re-gen.png'
 import images from 'assets/img/sections/landing/frame-elements/index';
+import icons from 'assets/img/sections/landing/icons/index'
 
 
 
@@ -59,6 +60,16 @@ function RightFrame () {
     )
 }
 
+function Icons() {
+    return (
+        <div className='flex justify-center items-center gap-3'>
+            <img src={icons.icon1} className='h-[50px]'></img>
+            <img src={icons.icon2} className='h-[50px]'></img>
+            <img src={icons.icon3} className='h-[50px]'></img>
+        </div>
+    )
+}
+
 export default function MainImage() {
     return (
         <div className='relative z-0 flex justify-center items-center h-screen'>
@@ -78,6 +89,10 @@ export default function MainImage() {
 
             <div className='absolute right-0 h-screen'>
                 <RightFrame/>
+            </div>
+
+            <div className='absolute bottom-0'>
+                <Icons/>
             </div>
         </div>
     );
