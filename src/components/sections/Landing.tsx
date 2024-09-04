@@ -25,7 +25,7 @@ export default function LandingPage() {
     };
 
     return (
-        <div className="h-screen w-full bg-red-600">
+        <div className="h-screen w-full bg-red-600 ">
              {/* {loadingComplete && (
                 <div className="sticky top-[50%]  z-10 h-0 w-full">
                     <motion.div  variants={containerVariants}
@@ -51,7 +51,7 @@ export default function LandingPage() {
                 )}
                 {loadingComplete && (
                 <motion.div
-                    className='relative w-full min-h-screen'
+                    className='relative w-full min-h-screen overflow-x-hidden'
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
