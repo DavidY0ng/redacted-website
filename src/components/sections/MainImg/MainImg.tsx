@@ -12,9 +12,12 @@ import icons from 'assets/img/sections/landing/icons/index'
 
 function GirlImg () {
     return (
-        <div>
+        <div className=''>
             <img src={girlImg} className='max-w-[1400px] hidden md:flex'></img>
             <img src={mobileGirlImg} className='block md:hidden h-screen w-full'></img>
+            <div className='absolute bottom-0 left-[50%] -translate-x-[50%]'>
+                <Icons/>
+            </div>
         </div>
     )
 }
@@ -91,9 +94,7 @@ export default function MainImage() {
                 <RightFrame/>
             </div>
 
-            <div className='absolute bottom-0'>
-                <Icons/>
-            </div>
+            
         </div>
     );
 }
