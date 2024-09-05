@@ -1,16 +1,22 @@
 .trapeziumWrapper {
-    position: relative;
-    width: 505px;
-    overflow: hidden;
+  position: relative;
+  width: 505px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  /* You can adjust the max-width as needed for the breakpoint */
+  .trapeziumWrapper {
+    width: 110%; /* Set the width to 300px for smaller screens */
   }
-  
-  .progressBar {
-    height: 100%;
-    margin-left: -10px;
-    transform: skewX(-50deg); /* Adjust the skew angle to make the trapezium */
-  }
-  
-  /* .progressBar::before {
+}
+
+.progressBar {
+  height: 100%;
+  margin-left: -10px;
+  transform: skewX(-50deg); /* Adjust the skew angle to make the trapezium */
+}
+
+/* .progressBar::before {
     content: '';
     position: absolute;
     top: 0;
@@ -21,4 +27,3 @@
     transform: skewX(-50deg); 
     transform-origin: bottom right;
   } */
-  

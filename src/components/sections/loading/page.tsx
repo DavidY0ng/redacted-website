@@ -28,15 +28,25 @@ function LoadingProgress() {
   }, [])
 
   return (
-    <div className="flex items-center space-x-5">
+    <div className="md:flex items-center space-x-5">
           <div className={style.trapeziumWrapper}>
           <div className={style.progressBar} style={{ width: `${progress}%` }}>
 
-            <Progress value={progress} className="w-[500px] border-b-2 border-r-2 animate-pulse" />
+            <Progress value={progress} className="w-[300px] md:w-[500px] border-b-2 border-r-2 animate-pulse" />
           </div>
           </div>
+        <div className="flex items-center gap-5">
+          <div>
+            <LoadingFont progress={progress} />
+          </div>
+            
+          <div className="flex">
+            
+            <LoadingTrapezium/>
+          </div>
+        </div>
         
-        <LoadingFont progress={progress} />
+        
     </div>
    
     )
@@ -96,9 +106,8 @@ function LoadingTrapezium() {
 
 export default function LoadingPage() {
     return (
-        <div className="flex items-center space-x-5">
+        <div className="md:flex items-center space-x-5 ">
             <LoadingProgress />
-            <LoadingTrapezium />
         </div>
     )
 }

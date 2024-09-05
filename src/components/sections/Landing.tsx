@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import LoadingPage from './loading/page'
+import LoadingPage from './Loading/page'
 import useLoading from '@/components/hooks/useLoading'
 import MainImage from './MainImg/MainImg'
 import StickyRedacted from './StickyRedacted/StickyRedacted'
@@ -36,12 +36,11 @@ export default function LandingPage() {
                     </motion.div>
                 </div>
              )} */}
-           
 
             <div className='relative w-full h-[100vh] flex items-center'>
                 {!loadingComplete && (
                     <motion.div 
-                        className='absolute left-[20%] bottom-[20%]'
+                        className='absolute left-0 bottom-[20%]'
                         variants={loadingVariants}
                         initial="initial"
                         animate={startLoadingAnimation ? "animate" : "initial"}
