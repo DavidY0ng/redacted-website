@@ -25,17 +25,17 @@ export default function LandingPage() {
     };
 
     return (
-        <div className="h-screen w-full bg-red-600 ">
-             {/* {loadingComplete && (
-                <div className="sticky top-[50%]  z-10 h-0 w-full">
+        <div className="h-[500vh] w-full bg-red-600 ">
+             {loadingComplete && (
+                <div className="sticky md:top-[50%] top-5 z-10 h-0 w-full">
                     <motion.div  variants={containerVariants}
                         initial="hidden"
                         animate="visible" 
-                        className="w-full flex flex-col translate-y-[-50%] items-center">
+                        className="absolute md:translate-y-[-50%] h-screen w-full">
                             <StickyRedacted />
                     </motion.div>
                 </div>
-             )} */}
+             )}
 
             <div className='relative w-full h-[100vh] flex items-center'>
                 {!loadingComplete && (
