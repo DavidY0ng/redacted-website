@@ -13,7 +13,7 @@ import icons from 'assets/img/sections/landing/icons/index'
 function GirlImg () {
     return (
         <div className=''>
-            <img src={girlImg} className='md:max-w-[1200px] lg:max-w-[1400px] lg:max-h-[1000px] hidden md:flex h-screen'></img>
+            <img src={girlImg} className='md:max-w-[1200px] lg:max-w-[1400px] md:max-h-[1000px] hidden md:flex h-screen'></img>
             <img src={mobileGirlImg} className='block md:hidden h-screen w-full'></img>
             <div className='absolute bottom-0 left-[50%] -translate-x-[50%]'>
                 <Icons/>
@@ -25,7 +25,7 @@ function GirlImg () {
 function Logo () {
     return (
         <div>
-            <img src={logo} className='md:w-auto lg:w-auto lg:max-w-[1400px] lg:max-h-[1000px] h-screen'></img>
+            <img src={logo} className='md:max-w-[1200px] lg:w-auto lg:max-w-[1400px] md:max-h-[1000px] h-screen'></img>
         </div>
     )
 }
