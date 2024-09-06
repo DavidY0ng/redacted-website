@@ -43,7 +43,7 @@ export default function LandingPage() {
 
   return (
     <div className="h-[500vh] w-full">
-		<div className='bg-[#b31e1e] md:h-[200vh] h-[400vh] relative'>
+		<div className='bg-[#b31e1e] h-[400vh] relative'>
 			{loadingComplete && (
 				<div className="sticky md:top-[50%] top-5 z-10 h-0 w-full ">
 					<motion.div
@@ -92,17 +92,13 @@ export default function LandingPage() {
 			<div className='bg-[#b31e1e] h-[150vh]'></div>
 
 			<FireBg />
-			<div className=' bg-black w-full h-[80vh]'>
-			</div>
+			<div className=' bg-black w-full h-[100vh]'></div>
+			
 		</div>
 
 		<div className='bg-black  w-full h-[100vh]'>
 		</div>
-		<div className='bg-blue-500 h-[100vh]'>
 
-		</div>
-		
-      	
     </div>
   )
 }

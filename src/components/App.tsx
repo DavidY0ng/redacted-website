@@ -6,6 +6,9 @@ function App() {
     return (
         <>
             <LandingPage />
+            <div className='bg-blue-500 h-[100vh]'>
+
+            </div>
             {/* <Redacted /> */}
         </>
             
