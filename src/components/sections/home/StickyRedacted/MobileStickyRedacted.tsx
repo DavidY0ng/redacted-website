@@ -47,15 +47,15 @@ export default function Redacted() {
   const initialECenterPosition = `-${phoneHeight * eMultiplier}px`;
 
   const letterScale = useTransform(scrollY, [0, 500], [3, 1]);
-  const rLeft = useTransform(scrollY, [0, 1000], ['420%', '0%']);
-  const rTop = useTransform(scrollY, [0, 1000], [initialRCenterPosition, '0%']);
+  const rLeft = useTransform(scrollY, [0, 800], ['420%', '0%']);
+  const rTop = useTransform(scrollY, [0, 800], [initialRCenterPosition, '0%']);
 
-  const eLeft = useTransform(scrollY, [0, 1000], ['310%', '0%']);
+  const eLeft = useTransform(scrollY, [0, 800], ['310%', '0%']);
   const eOffsetX = useTransform(scrollY, [0, 1000], ['0px', '47px']);
   const eOffsetY = useTransform(scrollY, [0, 1000], ['0px', '-108px']);
-  const eTop = useTransform(scrollY, [0, 1000], [initialECenterPosition, '0%']);
+  const eTop = useTransform(scrollY, [0, 800], [initialECenterPosition, '0%']);
 
-  const completeWordOpacity = useTransform(scrollY, [1000, 1500], [0, 1]);
+  const completeWordOpacity = useTransform(scrollY, [800, 1300], [0, 1]);
   const completeWordVisibility = useTransform(scrollY, [1000, 1001], ['none', 'block']);
 
   return (

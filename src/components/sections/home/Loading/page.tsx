@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Progress } from "../../ui/progress"
+import { Progress } from "../../../ui/progress"
 import { AnimatedText } from "@/components/animation/staggerText";
 import style from './style.module.css'
 import slantedTrapezium from 'assets/img/sections/loading/slanted trapezium.png'
