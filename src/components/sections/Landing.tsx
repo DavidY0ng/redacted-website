@@ -2,7 +2,8 @@ import { motion } from "framer-motion"
 import LoadingPage from './Loading/page'
 import useLoading from '@/components/hooks/useLoading'
 import MainImage from './MainImg/MainImg'
-import StickyRedacted from './StickyRedacted/StickyRedacted'
+import MobileStickyRedacted from './StickyRedacted/MobileStickyRedacted'
+import DesktopStickyRedacted from './StickyRedacted/DesktopStickyRedacted'
 
 
 export default function LandingPage() {
@@ -31,8 +32,14 @@ export default function LandingPage() {
                     <motion.div  variants={containerVariants}
                         initial="hidden"
                         animate="visible" 
-                        className="absolute md:translate-y-[-50%] h-screen w-full">
-                            <StickyRedacted />
+                        className="absolute flex md:hidden h-screen w-full">
+                            <MobileStickyRedacted />
+                    </motion.div>
+                    <motion.div  variants={containerVariants}
+                        initial="hidden"
+                        animate="visible" 
+                        className="absolute hidden md:block md:translate-y-[-50%] h-screen w-full">
+                            <DesktopStickyRedacted />
                     </motion.div>
                 </div>
              )}
@@ -57,8 +64,6 @@ export default function LandingPage() {
                 >
 
                     <MainImage />
-
-
                 </motion.div>
                 )}
             </div>

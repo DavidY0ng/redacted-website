@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import './style.css'
 import { Transition } from '@/components/animation/slideIn'
 import r from 'assets/img/sections/landing/r.png'
 import e from 'assets/img/sections/landing/e.png'

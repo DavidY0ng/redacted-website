@@ -13,7 +13,7 @@ import icons from 'assets/img/sections/landing/icons/index'
 function GirlImg () {
     return (
         <div className=''>
-            <img src={girlImg} className='max-w-[1400px] hidden md:flex'></img>
+            <img src={girlImg} className='md:max-w-[1200px] lg:max-w-[1400px] lg:max-h-[1000px] hidden md:flex h-screen'></img>
             <img src={mobileGirlImg} className='block md:hidden h-screen w-full'></img>
             <div className='absolute bottom-0 left-[50%] -translate-x-[50%]'>
                 <Icons/>
@@ -25,7 +25,7 @@ function GirlImg () {
 function Logo () {
     return (
         <div>
-            <img src={logo} className='max-w-[1400px]'></img>
+            <img src={logo} className='md:w-auto lg:w-auto lg:max-w-[1400px] lg:max-h-[1000px] h-screen'></img>
         </div>
     )
 }
@@ -33,7 +33,7 @@ function Logo () {
 function REGenImg () {
     return (
         <div className='flex justify-center'>
-            <img src={reGen} className='max-w-[1400px] hidden md:flex'></img>
+            <img src={reGen} className='md:max-w-[900px] lg:max-w-[1300px] hidden md:block'></img>
             <img src={mobileReGen} className='block md:hidden w-[90%]'></img>
         </div>
     )
@@ -75,7 +75,7 @@ function Icons() {
 
 export default function MainImage() {
     return (
-        <div className='relative z-0 flex justify-center items-center h-screen'>
+        <div className='relative z-0 flex justify-center items-center h-screen overflow-hidden'>
             <div className='absolute left-0 h-screen'>
                 <LeftFrame />
             </div>
@@ -86,14 +86,13 @@ export default function MainImage() {
             <Transition className='absolute' custom={{ delay: 0.5 }}>
                 <GirlImg />
             </Transition>
-            <Transition className='absolute bottom-[20%] flex ' custom={{ delay: 2.5}}>
+            <Transition className='absolute' custom={{ delay: 2.5}}>
                 <REGenImg />
             </Transition>
 
             <div className='absolute right-0 h-screen'>
                 <RightFrame/>
             </div>
-
             
         </div>
     );
