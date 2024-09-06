@@ -11,7 +11,7 @@ import t from 'assets/img/sections/landing/t.png'
 function LetterR() {
   return (
     <div>
-      <img src={r} className="h-[100px]"></img>
+      <img src={r} className="h-[35px]"></img>
     </div>
   )
 }
@@ -19,52 +19,62 @@ function LetterR() {
 function LetterE() {
   return (
     <div>
-      <img src={e} className="h-[100px]"></img>
+      <img src={e} className="h-[35px]"></img>
     </div>
   )
 }
 
 function CompleteWord() {
+  const letters = [d, a, c, t, e, d]; // Array of image sources
+
   return (
-    <div className="flex">
-      {/* <img src={d} className="h-[100px]"></img>
-      <img src={a} className="h-[100px]"></img>
-      <img src={c} className="h-[100px]"></img>
-      <img src={t} className="h-[100px]"></img>
-      <img src={e} className="h-[100px]"></img>
-      <img src={d} className="h-[100px]"></img> */}
+    <div className="flex gap-1">
+      {letters.map((letter, index) => (
+        <img key={index} src={letter} className="h-[35px]" />
+      ))}
     </div>
-  )
+  );
 }
 
 export default function Redacted() {
-  const { scrollY } = useScroll()
-  const letterScale = useTransform(scrollY, [0, 500], [1, 0.5]);
-  const rLeft = useTransform(scrollY,[0, 1000],['0%', '-40vw'])
-  const rCenter = useTransform(scrollY,[0, 1000],['0px', '40vh'])
+  const { scrollY } = useScroll();
+  const phoneHeight = typeof window !== 'undefined' ? window.innerHeight : 800; // Fallback to 800px if window is not defined
 
-  const eLeft = useTransform(scrollY,[0, 1000],['0px','-40vw'])
-  const eOffsetX = useTransform(scrollY, [0, 1000], ['0px', '60px']);
-  const eOffsetY = useTransform(scrollY, [0, 1000], ['0px', '-109px']);
-  const eTop = useTransform(scrollY, [0, 1000], ['0px', '40vh'])
+  // Calculate the initial positions based on phone height
+  const initialRCenterPosition = `-${phoneHeight * 1.2}px`;
 
-  const completeWordOpacity = useTransform(scrollY, [2000, 2600], [0, 1])
+  // Conditionally set the multiplier for the letter E based on screen height
+  const eMultiplier = phoneHeight <= 720 ? 0.7 : 0.8;
+  const initialECenterPosition = `-${phoneHeight * eMultiplier}px`;
+
+  const letterScale = useTransform(scrollY, [0, 500], [3, 1]);
+  const rLeft = useTransform(scrollY, [0, 1000], ['420%', '0%']);
+  const rTop = useTransform(scrollY, [0, 1000], [initialRCenterPosition, '0%']);
+
+  const eLeft = useTransform(scrollY, [0, 1000], ['310%', '0%']);
+  const eOffsetX = useTransform(scrollY, [0, 1000], ['0px', '47px']);
+  const eOffsetY = useTransform(scrollY, [0, 1000], ['0px', '-108px']);
+  const eTop = useTransform(scrollY, [0, 1000], [initialECenterPosition, '0%']);
+
+  const completeWordOpacity = useTransform(scrollY, [1000, 1500], [0, 1]);
+  const completeWordVisibility = useTransform(scrollY, [1000, 1001], ['none', 'block']);
 
   return (
     <div className="h-full w-full relative flex justify-center">
-      <Transition className={''} custom={{ delay: 2 }}>
-        <motion.div className="pb-3" style={{scale: letterScale, x:rLeft, y:rCenter, }}>
+      <Transition className={'w-[500px] flex gap-1 justify-center items-center'} custom={{ delay: 2 }}>
+        <motion.div className="" style={{ scale: letterScale, x: rLeft, y: rTop }}>
           <LetterR />
         </motion.div>
-        <div className="flex">
-            <motion.div className="" style={{scale: letterScale, x: eLeft,y: eTop, translateX: eOffsetX, translateY: eOffsetY}}>
-                <LetterE />
-            </motion.div>
-            {/* <motion.div className="" style={{x: eRight,y: eTop, opacity: completeWordOpacity}}>
-                <CompleteWord />
-            </motion.div> */}
-        </div>
+        <motion.div className="" style={{ scale: letterScale, x: eLeft, y: eTop }}>
+          <LetterE />
+        </motion.div>
+        <motion.div className="" style={{ opacity: completeWordOpacity }}>
+          <CompleteWord />
+        </motion.div>
       </Transition>
     </div>
-  )
+  );
 }
+
+
+  
