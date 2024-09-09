@@ -1,14 +1,14 @@
-import { motion } from "framer-motion"
-import FooterLogo from "@/assets/img/sections/footer/footer_logo.png"
-import FooterLine from "@/assets/img/sections/footer/footer_line.png"
-import BackToTop from "@/assets/img/sections/footer/back_to_top.png"
-import RedactedIcon from "@/assets/img/sections/footer/re_icon_small.png"
+import { motion } from 'framer-motion'
+import FooterLogo from '@/assets/img/sections/footer/footer_logo.png'
+import FooterLine from '@/assets/img/sections/footer/footer_line.png'
+import BackToTop from '@/assets/img/sections/footer/back_to_top.png'
+import RedactedIcon from '@/assets/img/sections/footer/re_icon_small.png'
 
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth'
     })
   }
 
@@ -62,14 +62,14 @@ export default function Footer() {
                 className="w-3/4 min-w-32 bg-white p-2 text-sm text-primary sm:text-base md:w-64"
                 required
                 style={{
-                  clipPath: "polygon(0 0, 100% 0, 94% 100%, 0% 100%)"
+                  clipPath: 'polygon(0 0, 100% 0, 94% 100%, 0% 100%)'
                 }}
               />
               <button
                 type="submit"
                 className="relative -ml-4 w-1/4 min-w-28 overflow-hidden bg-gray-200 p-2 text-sm font-bold text-gray-500 hover:bg-gray-600 sm:text-base md:w-auto"
                 style={{
-                  clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)"
+                  clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0% 100%)'
                 }}
               >
                 <span className="relative z-10">SIGN ME UP</span>
@@ -90,7 +90,7 @@ export default function Footer() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
             <img
               src={BackToTop}

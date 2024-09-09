@@ -43,62 +43,58 @@ export default function LandingPage() {
 
   return (
     <div className="h-[500vh] w-full">
-		<div className='bg-[#b31e1e] h-[400vh] relative'>
-			{loadingComplete && (
-				<div className="sticky md:top-[50%] top-5 z-10 h-0 w-full ">
-					<motion.div
-						variants={containerVariants}
-						initial="hidden"
-						animate="visible"
-						className="absolute flex md:hidden h-screen w-full"
-					>
-						<MobileStickyRedacted />
-					</motion.div>
-					<motion.div
-						variants={containerVariants}
-						initial="hidden"
-						animate="visible"
-						className="absolute hidden md:block md:translate-y-[-50%] h-screen w-full"
-					>
-						<DesktopStickyRedacted />
-					</motion.div>
-				</div>
-			)}
+      <div className="relative h-[400vh] bg-[#b31e1e]">
+        {loadingComplete && (
+          <div className="sticky top-5 z-10 h-0 w-full md:top-[50%] ">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="absolute flex h-screen w-full md:hidden"
+            >
+              <MobileStickyRedacted />
+            </motion.div>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="absolute hidden h-screen w-full md:block md:translate-y-[-50%]"
+            >
+              <DesktopStickyRedacted />
+            </motion.div>
+          </div>
+        )}
 
-			<div className="relative w-full h-[100vh] flex items-center">
-				{!loadingComplete && (
-					<motion.div
-						className="absolute left-0 bottom-[20%]"
-						variants={loadingVariants}
-						initial="initial"
-						animate={startLoadingAnimation ? 'animate' : 'initial'}
-					>
-						<LoadingPage />
-					</motion.div>
-				)}
-				{loadingComplete && (
-					<motion.div
-						className="relative w-full min-h-screen overflow-x-hidden"
-						variants={containerVariants}
-						initial="hidden"
-						animate="visible"
-					>
-						<MainImage />
-					</motion.div>
-				)}
-				
-			</div>
-			
-			<div className='bg-[#b31e1e] h-[150vh]'></div>
+        <div className="relative flex h-[100vh] w-full items-center">
+          {!loadingComplete && (
+            <motion.div
+              className="absolute bottom-[20%] left-0"
+              variants={loadingVariants}
+              initial="initial"
+              animate={startLoadingAnimation ? 'animate' : 'initial'}
+            >
+              <LoadingPage />
+            </motion.div>
+          )}
+          {loadingComplete && (
+            <motion.div
+              className="relative min-h-screen w-full overflow-x-hidden"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <MainImage />
+            </motion.div>
+          )}
+        </div>
 
-			<FireBg />
-			<div className=' bg-black w-full h-[100vh]'></div>
-			
-		</div>
+        <div className="h-[150vh] bg-[#b31e1e]"></div>
 
-		<div className='bg-black  w-full h-[100vh]'>
-		</div>
+        <FireBg />
+        <div className=" h-[100vh] w-full bg-black"></div>
+      </div>
 
+      <div className="h-[100vh]  w-full bg-black"></div>
     </div>
   )
 }
