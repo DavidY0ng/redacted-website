@@ -75,7 +75,7 @@ function LoadingTrapezium() {
   const controls4 = useAnimation();
   const controls5 = useAnimation();
 
-  const startBlinking = async (controls) => {
+  const startBlinking = async (controls:any) => {
     while (true) {
       await controls.start({ opacity: 0, transition: { duration: 0.2 } });
       await controls.start({ opacity: 1, transition: { duration: 0.2 } });

@@ -14,7 +14,7 @@ const containerVariants = {
 
 const transitionVariants = {
     hidden: { opacity: 0, x: 0, y: 0 },
-    visible: custom => ({
+    visible: (custom:any) => ({
         opacity: 1,
         x: custom.x || 0,
         y: custom.y || 0,
@@ -22,7 +22,7 @@ const transitionVariants = {
     })
 };
 
-export const AnimatedContainer = ({ children, className }) => {
+export const AnimatedContainer = ({ children, className }:any) => {
     return (
         <motion.div
             className={className}
@@ -35,7 +35,7 @@ export const AnimatedContainer = ({ children, className }) => {
     );
 };
 
-export const Transition = ({ children, className, custom }) => {
+export const Transition = ({ children, className, custom }:any) => {
     return (
         <motion.div
             className={className}
