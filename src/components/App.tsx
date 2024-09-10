@@ -10,6 +10,7 @@ function App() {
       <Intro />
       <About />
       <NFTCollection />
+      <div className='h-[100vh] bg-blue-500'></div>
     </>
   )
 }

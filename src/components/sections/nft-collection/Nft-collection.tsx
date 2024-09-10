@@ -15,7 +15,6 @@ function MobileNFT() {
 
   const moveUp1 = useTransform(scrollYProgress, [0, 1], ['0px', '-400px'])
   const moveUp2 = useTransform(scrollYProgress, [0, 1], ['0px', '-800px'])
-  const moveUpSlow = useTransform(scrollYProgress, [0, 1], ['0px', '-200px'])
 
   return (
     <div ref={ref} className="relative h-[200vh] w-full bg-black">
@@ -48,27 +47,27 @@ function MobileNFT() {
         initial={{ y: 0 }}
         animate={{ y: isInView ? 0 : 50 }}
         transition={{ duration: 0.5 }}
-        className="absolute left-[30%] top-[30%]  z-10 w-1/4"
+        className="absolute left-[30%] top-[35%]  z-10 w-1/4"
       >
-        <img src={character.character3} className="w-full" alt="Character 2" />
-      </motion.div>
-      <motion.div
-        style={{ y: moveUp2 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
-        className="absolute bottom-[-10%] left-[10%]  z-10 w-1/4"
-      >
-        <img src={character.character5} className="w-full" alt="Character 5" />
+        <img src={character.character3} className="w-full" alt="Character 3" />
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
         initial={{ y: 0 }}
         animate={{ y: isInView ? 0 : 50 }}
         transition={{ duration: 0.5 }}
-        className="absolute bottom-[-5%] right-[10%] z-10 w-1/4"
+        className="absolute bottom-[6%] left-[10%]  z-10 w-1/4"
       >
-        <img src={character.character6} className="w-full" alt="Character 5" />
+        <img src={character.character5} className="w-full" alt="Character 5" />
+      </motion.div>
+      <motion.div
+        style={{ y: moveUp2 }}
+        initial={{ y: 0 }}
+        animate={{ y: isInView ? 0 : 50 }}
+        transition={{ duration: 0.5 }}
+        className="absolute bottom-[-15%] right-[10%] z-10 w-1/4"
+      >
+        <img src={character.character6} className="w-full" alt="Character 6" />
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
@@ -77,7 +76,7 @@ function MobileNFT() {
         transition={{ duration: 0.5 }}
         className="absolute  bottom-[-10%] right-[32%] z-10 w-1/4"
       >
-        <img src={character.character7} className="w-full" alt="Character 5" />
+        <img src={character.character7} className="w-full" alt="Character 7" />
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
