@@ -13,7 +13,7 @@ export default function About() {
         <div className="absolute flex h-full max-w-[1200px] flex-col justify-center gap-3 px-10">
           <img src={loading} className="block w-1/2 md:hidden"></img>
           <img src={re} className="w-full max-w-[80%] md:max-w-[50%]"></img>
-          <img src={generationz} className=''></img>
+          <img src={generationz}></img>
           <img src={nft} className="block md:hidden "></img>
           {/* desktop */}
           <div className="md:flex md:gap-10">
