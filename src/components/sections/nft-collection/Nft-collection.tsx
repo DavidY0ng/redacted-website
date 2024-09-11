@@ -5,6 +5,7 @@ import description from '@/assets/img/nft-collection/description.png'
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import floating from './floating.module.css'
+import MovingDots from './moving-dots/MovingDots'
 
 function MobileNFT() {
   const ref = useRef(null)
@@ -126,11 +127,22 @@ function MobileNFT() {
         />
       </motion.div>
 
+      <div className="absolute bottom-[30%] left-[10%] z-10 w-1/6">
+        <MovingDots />
+      </div>
+
+      <div className="absolute bottom-[10%] right-[10%] z-5 w-1/6">
+        <MovingDots />
+      </div>
+
       <div className="absolute flex h-full justify-center px-10">
         <div className=" flex h-full flex-col items-end justify-center">
           <img src={fivek} className="mb-5 w-full max-w-[380px]"></img>
-          <div className="flex w-full justify-end">
+          <div className="mb-5 flex w-full justify-end">
             <img src={description} className="w-1/2"></img>
+          </div>
+          <div className="w-1/5">
+            <MovingDots />
           </div>
         </div>
       </div>
