@@ -18,13 +18,15 @@ function Character() {
 function Font() {
   return (
     <div className="relative w-full max-w-[500px] md:max-w-[600px]">
-      <p className='leading-9 lg:leading-tight mb-5 md:mb-10 font-euroblack text-white text-[28px] md:text-[30px] lg:text-[45px]'>
-          STEP INTO THE FANTASY WORLD OF <span className='text-red-700'>RE -</span> GENZ
+      <p className="font-euroblack mb-5 text-[28px] leading-9 text-white md:mb-10 md:text-[30px] lg:text-[45px] lg:leading-tight">
+        STEP INTO THE FANTASY WORLD OF{' '}
+        <span className="text-red-700">RE -</span> GENZ
       </p>
-      <p className='font-eurostile text-white/60 text-[15px] md:text-[18px] lg:text-[22px]'>
-        RE-GENZ stands for regenerative generations, emphasizing sustainability, community, and innovation.
-        This project leverages the power of NFTS to create a unique ecosystem where digital assets provide value
-        both online and offline.
+      <p className="font-eurostile text-[15px] text-white/60 md:text-[18px] lg:text-[22px]">
+        RE-GENZ stands for regenerative generations, emphasizing sustainability,
+        community, and innovation. This project leverages the power of NFTS to
+        create a unique ecosystem where digital assets provide value both online
+        and offline.
       </p>
     </div>
   )
