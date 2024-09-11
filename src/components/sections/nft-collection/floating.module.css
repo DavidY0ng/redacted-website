@@ -30,3 +30,16 @@
     animation: floatDown 8s ease-in-out infinite
   }
   
+  @media (min-height: 1000px) {
+    .bottomConditional {
+      bottom: 20%;
+    }
+  }
+  
+  @media (max-height: 999px) {
+    .bottomConditional {
+      bottom: 0%;
+    }
+  }
+
+  
