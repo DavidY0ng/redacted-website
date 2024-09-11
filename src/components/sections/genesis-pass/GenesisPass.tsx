@@ -4,7 +4,7 @@ import element2 from '@/assets/img/genesis-pass/2.webp'
 
 function MobileGenesisPass() {
   return (
-    <div className="relative h-[120vh] bg-gray-500 md:hidden md:h-screen">
+    <div className="relative h-[120vh] bg-black md:hidden md:h-screen">
       <div className="flex size-full max-w-[1400px] flex-col justify-center  pt-10">
         <div className="flex w-full justify-center md:h-full md:items-center">
           <div className="relative w-[400px] md:w-full">
@@ -15,7 +15,7 @@ function MobileGenesisPass() {
           </div>
         </div>
 
-        <div className="relative mx-auto h-[500px] w-[360px] bg-blue-500 md:w-[500px]">
+        <div className="relative mx-auto h-[500px] w-[360px] md:w-[500px]">
           <div className="absolute top-[-12%] flex  w-full justify-center md:top-[-15%]">
             <div className="absolute bottom-[30%] right-5 flex flex-col items-end text-sm text-white">
               <p className="font-eurostile">THE KEY INTO</p>
@@ -36,14 +36,17 @@ function MobileGenesisPass() {
 
 function DesktopGenesisPass() {
   return (
-    <div className="relative hidden h-[120vh] bg-gray-500 md:flex md:h-[120vh]">
+    <div className="relative hidden h-[120vh] bg-black md:flex md:h-[120vh]">
       <div className="mx-auto flex size-full max-w-[1400px] flex-col justify-center">
         <div className="flex w-full justify-center md:h-full md:items-center">
           <div className="relative w-[400px] md:w-[750px] lg:w-[1000px]">
-            <div className='flex justify-center w-full '>
-              <img src={element1} className="w-[50px] absolute left-[0%] mx-[50px] translate-y-[-5px] lg:w-[80px] lg:translate-y-[-10px] lg:left-[-2%]"></img>
+            <div className="flex w-full justify-center ">
+              <img
+                src={element1}
+                className="absolute left-0 mx-[50px] w-[50px] translate-y-[-5px] lg:left-[-2%] lg:w-[80px] lg:translate-y-[-10px]"
+              ></img>
             </div>
-            
+
             <div className="font-euroblack text-center text-[56px] leading-[0.8em] text-white md:text-[110px] lg:text-[160px]">
               GENESIS PASS
             </div>
