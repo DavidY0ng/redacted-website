@@ -96,3 +96,21 @@
   animation: float 3s ease-in-out infinite;
 }
 
+@font-face {
+  font-family: 'Eurostile';
+  src: url('./assets/font/Eurostile.otf') format('opentype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eurostile_Extd_Black';
+  src: url('./assets/font/Eurostile_Extd_Black.otf') format('opentype');
+  font-style: normal;
+}
+
+.font-euroblack {
+  font-family: 'Eurostile_Extd_Black';
+}
+.font-eurostile {
+  font-family: 'Eurostile', 'sans-serif';
+}
