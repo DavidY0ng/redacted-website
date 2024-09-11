@@ -114,3 +114,7 @@
 .font-eurostile {
   font-family: 'Eurostile', 'sans-serif';
 }
+
+.bg-red {
+  background-color: #b31e1e;
+}
