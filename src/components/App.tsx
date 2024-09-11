@@ -2,6 +2,7 @@ import LandingPage from './sections/home/Landing'
 import Intro from './sections/intro/Intro'
 import About from './sections/about/About'
 import NFTCollection from './sections/nft-collection/Nft-collection'
+import Footer from './footer/Footer'
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Intro />
       <About />
       <NFTCollection />
-      <div className='h-[100vh] bg-blue-500'></div>
+      <Footer />
     </>
   )
 }
