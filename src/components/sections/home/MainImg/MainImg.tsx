@@ -73,9 +73,9 @@ export default function MainImage() {
         <REGenImg />
       </Transition>
 
-      <div className="absolute right-0 h-screen">
+      <Transition className="absolute right-0 h-screen" custom={{ delay: 1 }}>
         <RightFrame />
-      </div>
+      </Transition>
     </div>
   )
 }
