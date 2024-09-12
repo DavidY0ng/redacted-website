@@ -1,5 +1,6 @@
 import character from '@/assets/img/human-race/character.webp'
 import character_gif from '@/assets/img/human-race/character-gif.gif'
+import character_gif_cropped from '@/assets/img/human-race/character-gif-cropped.gif'
 import loading from '@/assets/img/human-race/loading.webp'
 import React from 'react'
 import { motion, useAnimation, useInView } from 'framer-motion'
@@ -26,7 +27,7 @@ const HumanRace = () => {
         <motion.img
           src={character}
           alt="Static character"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full "
           initial={{ opacity: 1 }}
           animate={controls}
           variants={{
@@ -36,9 +37,9 @@ const HumanRace = () => {
           transition={{ duration: 0.5 }}
         />
         <motion.img
-          src={character_gif}
+          src={character_gif_cropped}
           alt="Character GIF"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-[92%] h-full "
           initial={{ opacity: 0 }}
           animate={controls}
           variants={{
