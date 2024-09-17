@@ -10,52 +10,45 @@ import squad5Mobile from '@/assets/img/sections/squad/mobile/squad_people_5.png'
 import squad5Desktop from '@/assets/img/sections/squad/desktop/squad_people_5.png'
 import squad6Mobile from '@/assets/img/sections/squad/mobile/squad_people_6.png'
 import squad6Desktop from '@/assets/img/sections/squad/desktop/squad_people_6.png'
+
 import Carousel from '@/components/carousel/Carousel'
 
 const squadMembers = [
   {
     id: 1,
-    name: 'JIANYU CHAN',
-    position: 'CO-FOUNDER & CEO',
     mobileImage: jiyanyuMobile,
     desktopImage: jiyanyuDesktop
   },
   {
     id: 2,
-    name: 'ALPHA PRINCE',
-    position: 'CO-FOUNDER & COO',
     mobileImage: alphaPrinceMobile,
     desktopImage: alphaPrinceDesktop
   },
   {
     id: 3,
-    name: 'SKY HON',
-    position: 'BITBAY LAND DIRECTOR',
     mobileImage: skyHonMobile,
     desktopImage: skyHonDesktop
   },
   {
     id: 4,
-    name: 'NAME HERE',
-    position: 'POSITION HERE',
     mobileImage: squad4Mobile,
     desktopImage: squad4Desktop
   },
   {
     id: 5,
-    name: 'NAME HERE',
-    position: 'POSITION HERE',
     mobileImage: squad5Mobile,
     desktopImage: squad5Desktop
   },
   {
     id: 6,
-    name: 'NAME HERE',
-    position: 'POSITION HERE',
     mobileImage: squad6Mobile,
     desktopImage: squad6Desktop
   }
 ]
+
+// Squad Members desktop images
+const desktopImages = squadMembers.map((member) => member.desktopImage)
+const mobileImages = squadMembers.map((member) => member.mobileImage)
 
 export default function Squad() {
   return (
@@ -68,7 +61,12 @@ export default function Squad() {
           MEET THE <span className="text-red-600">SQUAD</span>
         </h1>
         <div className="mb-8">
-          <Carousel items={squadMembers} />
+          <Carousel
+            images={desktopImages}
+            mobileImages={mobileImages}
+            loop={true}
+            itemsToShow={3}
+          />
         </div>
       </div>
       <div className="hidden h-full w-16 bg-gray-300 md:block">

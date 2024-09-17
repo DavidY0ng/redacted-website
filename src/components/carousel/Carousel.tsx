@@ -1,166 +1,166 @@
-'use client'
-
-import React, { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-
-interface CarouselItem {
-  id: number
-  name: string
-  position: string
-  mobileImage: string
-  desktopImage: string
-}
+import { Button } from '@/components/ui/button'
 
 interface CarouselProps {
-  items: CarouselItem[]
+  images: string[]
+  itemsToShow?: number
   loop?: boolean
+  gap?: string
+  mobileImages?: string[]
 }
 
-export default function Carousel({ items, loop = true }: CarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(0)
-  const [cardsPerView, setCardsPerView] = useState(1)
-  const [isMobile, setIsMobile] = useState(true)
-  const containerRef = useRef<HTMLDivElement>(null)
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 640)
 
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth
-      setIsMobile(width < 640)
-      if (containerRef.current) {
-        if (isMobile) {
-          setCardsPerView(3)
-        } else {
-          const containerWidth = containerRef.current.offsetWidth
-          const cardWidth = 250
-          const gap = 16
-          const possibleCards = Math.floor(
-            (containerWidth + gap) / (cardWidth + gap)
-          )
-          setCardsPerView(Math.max(1, Math.min(possibleCards, items.length)))
-        }
-      }
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 640)
     }
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [items.length])
+    window.addEventListener('resize', checkIsMobile)
 
-  const nextSlide = () => {
-    setDirection(1)
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
+
+const Carousel: React.FC<CarouselProps> = ({
+  images,
+  itemsToShow = 1,
+  loop = false,
+  gap = '16px', // default gap
+  mobileImages
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const isMobile = useIsMobile()
+
+  const imagesToUse = isMobile && mobileImages ? mobileImages : images
+  const totalItems = imagesToUse.length
+
+  const itemsPerView = Math.min(itemsToShow, totalItems)
+  const maxIndex = Math.max(totalItems - itemsPerView, 0)
+
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex)
+    }
+  }, [currentIndex, maxIndex])
+
+  const prev = () => {
     setCurrentIndex((prevIndex) => {
-      const nextIndex = prevIndex + cardsPerView
-      if (nextIndex < items.length) {
-        return nextIndex
+      if (prevIndex - 1 >= 0) {
+        return prevIndex - 1
       } else if (loop) {
+        return maxIndex
+      } else {
         return 0
       }
-      return prevIndex
     })
   }
 
-  const prevSlide = () => {
-    setDirection(-1)
+  const next = () => {
     setCurrentIndex((prevIndex) => {
-      const nextIndex = prevIndex - cardsPerView
-      if (nextIndex >= 0) {
-        return nextIndex
+      if (prevIndex + 1 <= maxIndex) {
+        return prevIndex + 1
       } else if (loop) {
-        return Math.max(0, items.length - cardsPerView)
+        return 0
+      } else {
+        return maxIndex
       }
-      return prevIndex
     })
   }
 
-  const cardVariants = {
-    hidden: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0
-    }),
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.3 }
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? -300 : 300,
-      opacity: 0,
-      transition: { duration: 0.3 }
-    })
-  }
+  const directionIconSize = 24
 
-  const visibleItems = items.slice(currentIndex, currentIndex + cardsPerView)
+  // Calculate the container height on mobile
+  const gapValue = parseInt(gap)
+  const containerHeight = isMobile
+    ? `calc((100vh / ${itemsPerView}) * ${itemsPerView} + ${
+        (itemsPerView - 1) * gapValue
+      }px)`
+    : 'auto'
 
   return (
-    <div className="relative mx-auto w-[85%]">
-      <h2 className="mb-8 text-4xl font-bold text-white">MEET THE SQUAD</h2>
-      <div className="flex min-h-96 items-center" ref={containerRef}>
-        <button
-          onClick={prevSlide}
-          className="absolute left-0 z-10 -translate-x-full rounded-full p-2 text-white"
-          aria-label="Previous slide"
-          disabled={currentIndex === 0 && !loop}
+    <div className="relative flex items-center py-4">
+      {/* Prev Icon */}
+      <Button
+        onClick={prev}
+        className="z-10 ml-2 mr-4"
+        disabled={!loop && currentIndex === 0}
+        variant="default"
+        size="icon"
+        aria-label="Previous image"
+      >
+        <ChevronLeft size={directionIconSize} />
+      </Button>
+
+      {/* Carousel Container */}
+      <div
+        className="flex-1 overflow-hidden"
+        style={{
+          height: containerHeight,
+          padding: isMobile ? '0' : '7.5%'
+        }}
+      >
+        <motion.div
+          className={`flex ${isMobile ? 'flex-col' : ''}`}
+          animate={
+            isMobile
+              ? {
+                  y: -currentIndex * (100 / itemsPerView) + '%'
+                }
+              : { x: -currentIndex * (100 / itemsPerView) + '%' }
+          }
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          style={{
+            gap: gap,
+            paddingTop: isMobile ? gap : '0',
+            paddingBottom: isMobile ? gap : '0',
+            overflow: 'visible'
+          }}
         >
-          <ChevronLeft size={24} />
-        </button>
-        <div className="w-full overflow-hidden">
-          {isMobile ? (
-            <div className="flex flex-col items-center gap-4">
-              {visibleItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="w-full max-w-[200px] overflow-hidden rounded-lg"
-                >
-                  <img
-                    src={item.mobileImage}
-                    alt={item.name}
-                    className="h-auto w-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <AnimatePresence initial={false} mode="wait">
-              <motion.div
-                key={currentIndex}
-                className="flex flex-row justify-center gap-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {visibleItems.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    className="w-[250px] overflow-hidden rounded-lg"
-                    variants={cardVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    custom={direction}
-                  >
-                    <img
-                      src={item.desktopImage}
-                      alt={item.name}
-                      className="h-auto w-full object-cover"
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          )}
-        </div>
-        <button
-          onClick={nextSlide}
-          className="absolute right-0 z-10 translate-x-full rounded-full p-2 text-white"
-          aria-label="Next slide"
-          disabled={currentIndex + cardsPerView >= items.length && !loop}
-        >
-          <ChevronRight size={24} />
-        </button>
+          {imagesToUse.map((image, index) => (
+            <motion.img
+              key={index}
+              src={image}
+              alt=""
+              className="shrink-0 cursor-pointer"
+              style={
+                isMobile
+                  ? {
+                      height: `calc((100vh / ${itemsPerView}) - ${gapValue}px)`,
+                      width: '100%',
+                      objectFit: 'contain'
+                    }
+                  : {
+                      width: `${100 / itemsPerView}%`,
+                      height: '85%',
+                      objectFit: 'cover'
+                    }
+              }
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 1.15 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            />
+          ))}
+        </motion.div>
       </div>
+
+      <Button
+        onClick={next}
+        className="z-10 ml-4 mr-2"
+        disabled={!loop && currentIndex >= maxIndex}
+        variant="default"
+        size="icon"
+        aria-label="Next image"
+      >
+        <ChevronRight size={directionIconSize} />
+      </Button>
     </div>
   )
 }
+
+export default Carousel
