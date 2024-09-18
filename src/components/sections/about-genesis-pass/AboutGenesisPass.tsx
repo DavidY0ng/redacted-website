@@ -30,13 +30,10 @@ function DesktopAboutGenesisPass() {
       <WholeFrame />
       <div className="flex h-screen items-center justify-center">
         <div className="relative h-screen w-full max-w-[1600px]">
-          {/* Centering the image */}
           <img
             src={lady}
             className="absolute left-1/2 z-0 h-screen w-full max-w-[1600px] -translate-x-1/2"
           />
-
-          {/* Keeping the headline div unchanged */}
           <div
             className={`absolute right-[20%] z-10 flex w-1/3 flex-col md:right-[5%] md:w-1/2 ${topPosition}`}
           >
