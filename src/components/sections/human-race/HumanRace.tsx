@@ -127,7 +127,7 @@ function MobileHumanRace() {
             transition={{ duration: 0.5 }}
           />
           <motion.div
-            className="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col gap-5 items-center"
+            className="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-5"
             initial={{ opacity: 1 }}
             animate={controls}
             variants={{
@@ -136,15 +136,15 @@ function MobileHumanRace() {
             }}
             transition={{ duration: 0.5 }}
           >
-			<div className='flex flex-col w-full max-w-[330px] items-center justify-center'>
-				<div className="">
-					<img src={loading} className="w-2/5" alt="Loading" />
-				</div>
-				<div className="font-euroblack text-center text-[47px] leading-none text-red-600">
-				HEADLINE HERE
-				</div>
-			</div>
-           
+            <div className="flex w-full max-w-[330px] flex-col items-center justify-center">
+              <div className="">
+                <img src={loading} className="w-2/5" alt="Loading" />
+              </div>
+              <div className="font-euroblack text-center text-[47px] leading-none text-red-600">
+                HEADLINE HERE
+              </div>
+            </div>
+
             <div className="font-eurostile text-center text-[20px] text-white">
               <p>Lorum ipsum</p>
               <p>Lorum ipsum Lorum ipsum</p>
