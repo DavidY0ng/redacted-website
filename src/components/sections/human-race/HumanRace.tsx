@@ -1,8 +1,7 @@
 import character from '@/assets/img/human-race/character.webp'
-import character_gif from '@/assets/img/human-race/character-gif.gif'
 import character_gif_cropped from '@/assets/img/human-race/character-gif-cropped.gif'
 import loading from '@/assets/img/human-race/loading.webp'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { RightFrame, LeftFrame } from '@/components/frame/Frame'
 
@@ -10,7 +9,6 @@ function DesktopHumanRace() {
   const controls = useAnimation()
   const ref = React.useRef(null)
   const isInView = useInView(ref, {
-    once: false,
     amount: 0.5
   })
 
@@ -23,13 +21,13 @@ function DesktopHumanRace() {
   }, [controls, isInView])
 
   return (
-    <div className="relative bg-black h-[200vh] hidden md:block">
-      <div className="sticky top-0 h-screen overflow-hidden flex justify-center items-center">
-        <div className="relative w-full max-w-[1600px] h-full">
+    <div className="relative hidden h-[200vh] bg-black md:block">
+      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+        <div className="relative size-full max-w-[1600px]">
           <motion.img
             src={character}
             alt="Static character"
-            className="absolute left-0 w-full h-full "
+            className="absolute left-0 size-full"
             initial={{ opacity: 1 }}
             animate={controls}
             variants={{
@@ -38,10 +36,34 @@ function DesktopHumanRace() {
             }}
             transition={{ duration: 0.5 }}
           />
-          <motion.img
-            src={character_gif_cropped}
-            alt="Character GIF"
-            className="absolute left-0 w-[92%] h-full "
+          <motion.div
+            className="absolute right-0 top-1/2 mr-10 flex w-1/2 -translate-y-1/2 flex-col gap-5"
+            initial={{ opacity: 1 }}
+            animate={controls}
+            variants={{
+              visible: { opacity: 0 },
+              hidden: { opacity: 1 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex justify-end">
+              <img
+                src={loading}
+                className="w-1/3 max-w-[270px]"
+                alt="Loading"
+              />
+            </div>
+            <div className="font-euroblack text-right leading-none text-red-600 md:text-[45px] lg:text-[6vw] xl:text-[90px]">
+              HEADLINE HERE
+            </div>
+            <div className="font-eurostile text-right text-white md:text-[18px] lg:text-[2vw] xl:text-[28px]">
+              <p>Lorum ipsum</p>
+              <p>Lorum ipsum Lorum ipsum</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="absolute left-0 top-0 size-full overflow-hidden "
             initial={{ opacity: 0 }}
             animate={controls}
             variants={{
@@ -49,7 +71,13 @@ function DesktopHumanRace() {
               hidden: { opacity: 0 }
             }}
             transition={{ duration: 0.5 }}
-          />
+          >
+            <img
+              src={character_gif_cropped}
+              alt="Character GIF"
+              className="h-full w-[92%] "
+            />
+          </motion.div>
         </div>
         <div className="absolute left-0 h-screen">
           <LeftFrame />
@@ -59,7 +87,8 @@ function DesktopHumanRace() {
         </div>
       </div>
 
-      <div ref={ref} className="h-screen" />
+      <div ref={ref} className="h-[170vh]" />
+      <div className="h-screen" />
     </div>
   )
 }

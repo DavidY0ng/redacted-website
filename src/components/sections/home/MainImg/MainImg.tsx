@@ -66,10 +66,10 @@ export default function MainImage() {
       <Transition className="absolute hidden md:block" custom={{ delay: 2 }}>
         <Logo />
       </Transition>
-      <Transition className="absolute" custom={{ delay: 1 }}>
+      <Transition className="absolute z-10" custom={{ delay: 1 }}>
         <GirlImg />
       </Transition>
-      <Transition className="absolute" custom={{ delay: 2.5 }}>
+      <Transition className="absolute z-20" custom={{ delay: 2.5 }}>
         <REGenImg />
       </Transition>
 
