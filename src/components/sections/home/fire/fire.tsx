@@ -6,7 +6,7 @@ export default function FireBg() {
       <img
         src={fire}
         loading="eager"
-        className="absolute h-[1000px] md:h-[1600px] w-full bottom-0 z-[100]"
+        className="absolute bottom-0 z-[100] h-[1000px] w-full md:h-[1600px]"
       ></img>
     </div>
   )

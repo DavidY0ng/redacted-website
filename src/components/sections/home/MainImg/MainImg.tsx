@@ -1,6 +1,7 @@
 import React from 'react'
 import { Transition } from '@/components/animation/slideIn'
 import girlImg from 'assets/img/sections/landing/character.webp'
+import girl_gif from 'assets/img/sections/landing/girl-gif.gif'
 import mobileGirlImg from 'assets/img/sections/landing/mobile/character.png'
 import logo from 'assets/img/sections/landing/eye.webp'
 import reGen from 'assets/img/sections/landing/re-gen.webp'
@@ -11,12 +12,12 @@ function GirlImg() {
   return (
     <div className="">
       <img
-        src={girlImg}
+        src={girl_gif}
         loading="eager"
         className="hidden h-screen md:flex md:max-h-[1000px] md:max-w-[1200px] lg:max-w-[1400px]"
       ></img>
       <img
-        src={mobileGirlImg}
+        src={girl_gif}
         loading="eager"
         className="block h-screen w-full md:hidden"
       ></img>
@@ -27,13 +28,13 @@ function GirlImg() {
   )
 }
 
-function Logo() {
+export function Logo() {
   return (
     <div>
       <img
         src={logo}
         loading="eager"
-        className="h-screen md:max-h-[1000px] md:max-w-[1200px] lg:w-auto lg:max-w-[1400px]"
+        className="h-screen md:max-h-[1100px] md:max-w-[1200px] lg:w-auto lg:max-w-[1600px]"
       ></img>
     </div>
   )
@@ -63,9 +64,9 @@ export default function MainImage() {
         <LeftFrame />
       </div>
 
-      <Transition className="absolute hidden md:block" custom={{ delay: 2 }}>
+      {/* <Transition className="absolute hidden md:block" custom={{ delay: 2 }}>
         <Logo />
-      </Transition>
+      </Transition> */}
       <Transition className="absolute z-10" custom={{ delay: 1 }}>
         <GirlImg />
       </Transition>

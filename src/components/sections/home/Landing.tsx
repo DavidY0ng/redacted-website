@@ -4,8 +4,10 @@ import useLoading from '@/components/hooks/useLoading'
 import MainImage from './MainImg/MainImg'
 import MobileStickyRedacted from './StickyRedacted/MobileStickyRedacted'
 import DesktopStickyRedacted from './StickyRedacted/DesktopStickyRedacted'
+import { Transition } from '@/components/animation/slideIn'
 import FireBg from './fire/fire'
 import React, { useEffect, useState } from 'react'
+import { Logo } from './MainImg/MainImg'
 
 export default function LandingPage() {
   const { loadingComplete, startLoadingAnimation } = useLoading()
@@ -18,7 +20,7 @@ export default function LandingPage() {
     // Simulate loading process
     const timer = setTimeout(() => {
       setShowLoading(false)
-    }, 6000) // Adjust time as needed
+    }, 1500) // Adjust time as needed
 
     return () => clearTimeout(timer)
   }, [])
@@ -67,14 +69,24 @@ export default function LandingPage() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="absolute hidden h-screen w-full md:block md:translate-y-[-50%]"
+                className="absolute hidden h-screen w-full md:block md:translate-y-[-50%] z-[110]"
               >
                 <DesktopStickyRedacted />
               </motion.div>
             </div>
           )}
+          <div className='flex justify-center bg-gray-500 '>
+            <Transition
+              className="absolute hidden md:block"
+              custom={{ delay: 2 }}
+            >
+              <Logo />
+            </Transition>
 
-          <div className="relative flex h-[100vh] w-full items-center">
+          </div>
+          
+
+          <div className="relative flex h-[100vh] w-full items-center z-[10]">
             <motion.div
               className="relative min-h-screen w-full overflow-x-hidden"
               variants={containerVariants}
