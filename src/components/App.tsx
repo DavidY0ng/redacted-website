@@ -10,6 +10,7 @@ import HumanRace from './sections/human-race/HumanRace'
 import GrabTicket from './sections/grab-ticket/GrabTicket'
 import GenesisPass from './sections/genesis-pass/GenesisPass'
 import AboutGenesisPass from './sections/about-genesis-pass/AboutGenesisPass'
+import Squad from './sections/squad/Squad'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <ThreeLogos />
       <GenesisPass />
       <AboutGenesisPass />
+      <Squad />
       <Footer />
     </>
   )

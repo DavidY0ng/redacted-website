@@ -10,6 +10,7 @@ import squad5Mobile from '@/assets/img/sections/squad/mobile/squad_people_5.png'
 import squad5Desktop from '@/assets/img/sections/squad/desktop/squad_people_5.png'
 import squad6Mobile from '@/assets/img/sections/squad/mobile/squad_people_6.png'
 import squad6Desktop from '@/assets/img/sections/squad/desktop/squad_people_6.png'
+import { WholeStandardFrame } from '@/components/frame/Frame'
 
 import Carousel from '@/components/carousel/Carousel'
 
@@ -52,15 +53,18 @@ const mobileImages = squadMembers.map((member) => member.mobileImage)
 
 export default function Squad() {
   return (
-    <div className="relative flex w-full justify-center bg-black">
-      <div className="hidden h-full w-16 bg-gray-300 md:block">
+    <div className="relative flex h-screen w-full items-center justify-center bg-black">
+      <div className="hidden h-full w-16 bg-black md:block">
         {/* Left image placeholder */}
       </div>
-      <div className="w-full max-w-6xl px-4 md:px-8">
-        <h1 className="mb-8 text-center text-4xl font-bold md:text-6xl">
-          MEET THE <span className="text-red-600">SQUAD</span>
-        </h1>
-        <div className="mb-8">
+      <div className="w-full max-w-[1600px] px-4 md:px-8">
+        <div className="flex w-full justify-center md:justify-start">
+          <h1 className="font-euroblack mb-8 mt-10 w-[260px] text-left text-4xl font-bold text-white md:w-[500px] md:text-6xl">
+            MEET THE <span className="text-red">SQUAD</span>
+          </h1>
+        </div>
+
+        <div className="md:mb-8">
           <Carousel
             images={desktopImages}
             mobileImages={mobileImages}
@@ -69,9 +73,11 @@ export default function Squad() {
           />
         </div>
       </div>
-      <div className="hidden h-full w-16 bg-gray-300 md:block">
+
+      <div className="hidden h-full w-16 bg-black md:block">
         {/* Right image placeholder */}
       </div>
+      <WholeStandardFrame />
     </div>
   )
 }
