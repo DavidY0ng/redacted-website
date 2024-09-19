@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-red-background p-2 text-white sm:p-4">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[1400px]">
         <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
           <div className="order-2 mb-8 md:order-1 md:mb-0">
             <img
