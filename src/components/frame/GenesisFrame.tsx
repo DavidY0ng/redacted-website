@@ -5,7 +5,7 @@ import rightElement2 from '@/assets/img/about-genesis-pass/right-element-2.png'
 
 function LeftFrame() {
   return (
-    <div className="relative ml-1 md:ml-3 flex h-screen flex-col items-center justify-center gap-10 ">
+    <div className="relative ml-1 flex h-screen flex-col items-center justify-center gap-10 md:ml-3 ">
       <img
         src={leftElement1}
         loading="eager"
@@ -14,7 +14,7 @@ function LeftFrame() {
       <img
         src={leftElement2}
         loading="eager"
-        className="absolute bottom-0 left-0 mb-3 md:mb-5 w-[30px] md:w-[50px]"
+        className="absolute bottom-0 left-0 mb-3 w-[30px] md:mb-5 md:w-[50px]"
       ></img>
     </div>
   )
@@ -22,7 +22,7 @@ function LeftFrame() {
 
 function RightFrame() {
   return (
-    <div className="relative mr-1 md:mr-3 flex h-screen flex-col items-center justify-center gap-10">
+    <div className="relative mr-1 flex h-screen flex-col items-center justify-center gap-10 md:mr-3">
       <img
         src={rightElement2}
         loading="eager"
@@ -31,7 +31,7 @@ function RightFrame() {
       <img
         src={rightElement1}
         loading="eager"
-        className="absolute bottom-0 right-0 mb-3 md:mb-5 w-[30px] md:w-[50px]"
+        className="absolute bottom-0 right-0 mb-3 w-[30px] md:mb-5 md:w-[50px]"
       ></img>
     </div>
   )

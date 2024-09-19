@@ -19,7 +19,7 @@ function App() {
       <About />
       <HumanRace />
       <NFTCollection />
-      {/* <GrabTicket /> */}
+      <GrabTicket />
       <ThreeLogos />
       <GenesisPass />
       <AboutGenesisPass />

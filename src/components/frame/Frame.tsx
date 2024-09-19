@@ -66,3 +66,16 @@ export function Icons() {
     </div>
   )
 }
+
+export function WholeStandardFrame() {
+  return (
+    <>
+      <div className="absolute left-0 h-screen">
+        <LeftFrame />
+      </div>
+      <div className="absolute right-0 h-screen">
+        <RightFrame />
+      </div>
+    </>
+  )
+}
