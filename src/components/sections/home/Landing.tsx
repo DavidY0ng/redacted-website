@@ -45,7 +45,7 @@ export default function LandingPage() {
     <div className="h-[500vh] w-full">
       {showLoading ? (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-red"
+          className="bg-red fixed inset-0 z-50 flex items-center justify-center"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
@@ -69,24 +69,22 @@ export default function LandingPage() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="absolute hidden h-screen w-full md:block md:translate-y-[-50%] z-[110]"
+                className="absolute z-[110] hidden h-screen w-full md:block md:translate-y-[-50%]"
               >
                 <DesktopStickyRedacted />
               </motion.div>
             </div>
           )}
-          <div className='flex justify-center bg-gray-500 '>
+          <div className="flex justify-center bg-gray-500 ">
             <Transition
               className="absolute hidden md:block"
               custom={{ delay: 2 }}
             >
               <Logo />
             </Transition>
-
           </div>
-          
 
-          <div className="relative flex h-[100vh] w-full items-center z-[10]">
+          <div className="relative z-10 flex h-screen w-full items-center">
             <motion.div
               className="relative min-h-screen w-full overflow-x-hidden"
               variants={containerVariants}
@@ -100,11 +98,11 @@ export default function LandingPage() {
           <div className="h-[150vh] bg-[#b31e1e]"></div>
 
           <FireBg />
-          <div className="h-[100vh] w-full bg-black"></div>
+          <div className="h-screen w-full bg-black"></div>
         </div>
       )}
 
-      <div className="h-[100vh] w-full bg-black"></div>
+      <div className="h-screen w-full bg-black"></div>
     </div>
   )
 }
