@@ -3,6 +3,25 @@ import { motion, AnimatePresence } from 'framer-motion'
 import icons from 'assets/img/sections/landing/icons/index'
 import image from '@/assets/img/menu/index'
 
+const menuVariants = {
+  hidden: {
+    width: '100px',
+    opacity: 0,
+    transition: {
+      width: { duration: 0.3 },
+      opacity: { duration: 0.2 }
+    }
+  },
+  visible: {
+    width: '500px',
+    opacity: 1,
+    transition: {
+      width: { duration: 0.5 },
+      opacity: { duration: 0.3, delay: 0.1 }
+    }
+  }
+}
+
 function MenuList() {
   const menuList = [
     { name: 'home', path: '' },
@@ -15,28 +34,38 @@ function MenuList() {
   ]
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.3 }}
-      className="absolute bottom-0 left-0 w-[500px] p-4 rounded shadow-lg flex gap-4 justify-between backdrop-blur-md bg-white/30 border border-white/20"
-    >
-      {menuList.map((item) => (
-        <a
-          key={item.name}
-          href={item.path}
-          className="flex flex-col items-center"
+    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 overflow-hidden">
+      <motion.div
+        variants={menuVariants}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        className="shadow-lg backdrop-blur-md bg-white/30 border border-white/20"
+        style={{ maxWidth: '500px', margin: '0 auto' }}
+      >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="flex gap-4 justify-between p-4"
         >
-          <img
-            src={image[item.name]}
-            alt={item.name}
-            className="w-[50px] h-auto mb-2"
-          />
-          <span className="text-xs capitalize">{item.name}</span>
-        </a>
-      ))}
-    </motion.div>
+          {menuList.map((item) => (
+            <a
+              key={item.name}
+              href={item.path}
+              className="flex flex-col items-center"
+            >
+              <img
+                src={image[item.name]}
+                alt={item.name}
+                className="w-[50px] h-auto mb-2"
+              />
+              <span className="text-xs capitalize">{item.name}</span>
+            </a>
+          ))}
+        </motion.div>
+      </motion.div>
+    </div>
   )
 }
 
