@@ -19,7 +19,7 @@ function GirlImg() {
       <img
         src={girl_gif}
         loading="eager"
-        className="block h-screen w-full md:hidden"
+        className="block h-screen max-h-[550px] w-full md:hidden md:max-h-full"
       ></img>
       <div className="absolute bottom-0 left-[50%] -translate-x-[50%]">
         <Icons />
@@ -67,7 +67,10 @@ export default function MainImage() {
       {/* <Transition className="absolute hidden md:block" custom={{ delay: 2 }}>
         <Logo />
       </Transition> */}
-      <Transition className="absolute z-10" custom={{ delay: 1 }}>
+      <Transition
+        className="absolute bottom-0 z-10 md:bottom-auto"
+        custom={{ delay: 1 }}
+      >
         <GirlImg />
       </Transition>
       <Transition className="absolute z-20" custom={{ delay: 2.5 }}>

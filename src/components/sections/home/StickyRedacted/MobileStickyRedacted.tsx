@@ -10,7 +10,7 @@ import t from 'assets/img/sections/landing/t.png'
 function LetterR() {
   return (
     <div>
-      <img src={r} className="h-[35px]"></img>
+      <img src={r} className="h-[30px]"></img>
     </div>
   )
 }
@@ -18,7 +18,7 @@ function LetterR() {
 function LetterE() {
   return (
     <div>
-      <img src={e} className="h-[35px]"></img>
+      <img src={e} className="h-[30px]"></img>
     </div>
   )
 }
@@ -29,7 +29,7 @@ function CompleteWord() {
   return (
     <div className="flex gap-1">
       {letters.map((letter, index) => (
-        <img key={index} src={letter} className="h-[35px]" />
+        <img key={index} src={letter} className="h-[30px]" />
       ))}
     </div>
   )
@@ -40,19 +40,19 @@ export default function Redacted() {
   const phoneHeight = typeof window !== 'undefined' ? window.innerHeight : 800 // Fallback to 800px if window is not defined
 
   // Calculate the initial positions based on phone height
-  const initialRCenterPosition = `-${phoneHeight * 1.2}px`
+  const initialRCenterPosition = `-${phoneHeight * 1.3}px`
 
   // Conditionally set the multiplier for the letter E based on screen height
   const eMultiplier = phoneHeight <= 720 ? 0.7 : 0.8
   const initialECenterPosition = `-${phoneHeight * eMultiplier}px`
 
-  const letterScale = useTransform(scrollY, [0, 500], [3, 1])
+  const letterScale = useTransform(scrollY, [0, 500], [4, 1])
   const rLeft = useTransform(scrollY, [0, 800], ['420%', '0%'])
   const rTop = useTransform(scrollY, [0, 800], [initialRCenterPosition, '0%'])
 
   const eLeft = useTransform(scrollY, [0, 800], ['310%', '0%'])
-  const eOffsetX = useTransform(scrollY, [0, 1000], ['0px', '47px'])
-  const eOffsetY = useTransform(scrollY, [0, 1000], ['0px', '-108px'])
+  // const eOffsetX = useTransform(scrollY, [0, 1000], ['0px', '47px'])
+  // const eOffsetY = useTransform(scrollY, [0, 1000], ['0px', '-108px'])
   const eTop = useTransform(scrollY, [0, 800], [initialECenterPosition, '0%'])
 
   const completeWordOpacity = useTransform(scrollY, [800, 1300], [0, 1])

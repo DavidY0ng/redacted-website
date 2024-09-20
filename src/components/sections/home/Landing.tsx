@@ -78,9 +78,9 @@ export default function LandingPage() {
           <div className="flex justify-center bg-gray-500 ">
             <motion.div
               className="absolute hidden md:block"
-              initial={{ rotate: 90 }} // Start with 90 degrees rotation
-              animate={{ rotate: 0 }} // Rotate back to 0 degrees
-              transition={{ duration: 5 }} // Adjust the duration as needed
+              initial={{ rotate: 90, scale: 0.5 }}
+              animate={{ rotate: 0, scale: 1 }}
+              transition={{ duration: 5 }}
             >
               <Logo />
             </motion.div>

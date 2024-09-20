@@ -11,7 +11,7 @@ import t from 'assets/img/sections/landing/t.png'
 function LetterR() {
   return (
     <div>
-      <img src={r} className="md:h-[80px]"></img>
+      <img src={r} className="md:h-[60px]"></img>
     </div>
   )
 }
@@ -19,7 +19,7 @@ function LetterR() {
 function LetterE() {
   return (
     <div>
-      <img src={e} className="md:h-[80px]"></img>
+      <img src={e} className="md:h-[60px]"></img>
     </div>
   )
 }
@@ -30,7 +30,7 @@ function CompleteWord() {
   return (
     <div className="flex gap-1">
       {letters.map((letter, index) => (
-        <img key={index} src={letter} className="md:h-[80px]" />
+        <img key={index} src={letter} className="md:h-[60px]" />
       ))}
     </div>
   )
@@ -61,9 +61,9 @@ export default function Redacted() {
         setRPosition({ top: '-200px', left: '75px' }) // Adjust R's position
         setEPosition({ top: '100px', left: '-30px' }) // Adjust E's position
       } else {
-        setLetterScaleRange([3.3, 1]) // Set scale to 3.3 for other screens
+        setLetterScaleRange([4.7, 1]) // Set scale to 3.3 for other screens
         setRPosition({ top: '-200px', left: '0px' }) // Default R position
-        setEPosition({ top: '200px', left: '-105px' }) // Default E position
+        setEPosition({ top: '330px', left: '-105px' }) // Default E position
       }
     }
 
