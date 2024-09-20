@@ -6,22 +6,33 @@ import mobileGirlImg from 'assets/img/sections/landing/mobile/character.png'
 import logo from 'assets/img/sections/landing/eye.webp'
 import reGen from 'assets/img/sections/landing/re-gen.webp'
 import mobileReGen from 'assets/img/sections/landing/mobile/re-gen.png'
-import { LeftFrame, RightFrame, Icons } from '@/components/frame/Frame'
+import { Icons, WholeStandardFrame } from '@/components/frame/Frame'
+import { motion } from 'framer-motion'
 
 function GirlImg() {
   return (
     <div className="">
-      <img
-        src={girl_gif}
-        loading="eager"
-        className="hidden h-screen md:flex md:max-h-[1000px] md:max-w-[1200px] lg:max-w-[1400px]"
-      ></img>
+      {/* desktop girl */}
+      <motion.div
+        className="hidden md:flex"
+        initial={{ rotate: 40, scale: 0.6, x: 900 }}
+        animate={{ rotate: 0, scale: 1, x: 0 }}
+        transition={{ duration: 3.5 }}
+      >
+        <img
+          src={girl_gif}
+          loading="eager"
+          className=" h-screen  md:max-h-[1000px] md:max-w-[1200px] lg:max-w-[1400px]"
+        ></img>
+      </motion.div>
+
+      {/* mobile girl */}
       <img
         src={girl_gif}
         loading="eager"
         className="block h-screen max-h-[550px] w-full md:hidden md:max-h-full"
       ></img>
-      <div className="absolute bottom-0 left-[50%] -translate-x-[50%]">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
         <Icons />
       </div>
     </div>
@@ -30,13 +41,20 @@ function GirlImg() {
 
 export function Logo() {
   return (
-    <div>
-      <img
-        src={logo}
-        loading="eager"
-        className="h-screen md:max-h-[1100px] md:max-w-[1200px] lg:w-auto lg:max-w-[1600px]"
-      ></img>
-    </div>
+    <motion.div
+      className="absolute hidden md:block"
+      initial={{ rotate: 30, scale: 0.9 }}
+      animate={{ rotate: 0, scale: 1 }}
+      transition={{ duration: 1.5 }}
+    >
+      <div>
+        <img
+          src={logo}
+          loading="eager"
+          className="h-screen md:w-full md:max-h-[1100px] md:max-w-[1200px] lg:w-full lg:max-w-[1600px]"
+        ></img>
+      </div>
+    </motion.div>
   )
 }
 
@@ -60,25 +78,22 @@ function REGenImg() {
 export default function MainImage() {
   return (
     <div className="relative z-0 flex h-screen items-center justify-center overflow-hidden">
-      <div className="absolute left-0 h-screen">
-        <LeftFrame />
-      </div>
-
       {/* <Transition className="absolute hidden md:block" custom={{ delay: 2 }}>
         <Logo />
       </Transition> */}
       <Transition
         className="absolute bottom-0 z-10 md:bottom-auto"
-        custom={{ delay: 1 }}
+        custom={{ delay: 2 }}
       >
         <GirlImg />
       </Transition>
-      <Transition className="absolute z-20" custom={{ delay: 2.5 }}>
+      <Transition className="absolute z-20" custom={{ delay: 5 }}>
         <REGenImg />
       </Transition>
 
-      <Transition className="absolute right-0 h-screen" custom={{ delay: 1 }}>
-        <RightFrame />
+      {/* frame */}
+      <Transition className="h-screen" custom={{ delay: 4 }}>
+        <WholeStandardFrame />
       </Transition>
     </div>
   )

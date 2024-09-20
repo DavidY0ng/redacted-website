@@ -76,14 +76,7 @@ export default function LandingPage() {
             </div>
           )}
           <div className="flex justify-center bg-gray-500 ">
-            <motion.div
-              className="absolute hidden md:block"
-              initial={{ rotate: 90, scale: 0.5 }}
-              animate={{ rotate: 0, scale: 1 }}
-              transition={{ duration: 5 }}
-            >
-              <Logo />
-            </motion.div>
+            <Logo />
           </div>
 
           <div className="relative z-10 flex h-screen w-full items-center">

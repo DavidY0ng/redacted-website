@@ -94,10 +94,15 @@ export default function Redacted() {
   )
 
   return (
-    <div className="h-full w-full relative flex justify-center">
-      <Transition
-        className={'w-full flex gap-1 justify-center items-center'}
-        custom={{ delay: 2 }}
+    <Transition
+      className="h-full w-full relative flex justify-center"
+      custom={{ delay: 2 }}
+    >
+      <motion.div
+        className="w-full flex gap-1 justify-center items-center"
+        initial={{ rotate: -40, scale: 0.6, x: -900 }}
+        animate={{ rotate: 0, scale: 1, x: 0 }}
+        transition={{ duration: 3.5 }}
       >
         <motion.div
           className=""
@@ -114,7 +119,7 @@ export default function Redacted() {
         <motion.div className="" style={{ opacity: completeWordOpacity }}>
           <CompleteWord />
         </motion.div>
-      </Transition>
-    </div>
+      </motion.div>
+    </Transition>
   )
 }
