@@ -20,7 +20,7 @@ export default function LandingPage() {
     // Simulate loading process
     const timer = setTimeout(() => {
       setShowLoading(false)
-    }, 1500) // Adjust time as needed
+    }, 6000) // Adjust time as needed
 
     return () => clearTimeout(timer)
   }, [])
@@ -76,12 +76,14 @@ export default function LandingPage() {
             </div>
           )}
           <div className="flex justify-center bg-gray-500 ">
-            <Transition
+            <motion.div
               className="absolute hidden md:block"
-              custom={{ delay: 2 }}
+              initial={{ rotate: 90 }} // Start with 90 degrees rotation
+              animate={{ rotate: 0 }} // Rotate back to 0 degrees
+              transition={{ duration: 5 }} // Adjust the duration as needed
             >
               <Logo />
-            </Transition>
+            </motion.div>
           </div>
 
           <div className="relative z-10 flex h-screen w-full items-center">

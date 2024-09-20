@@ -12,6 +12,7 @@ import GenesisPass from './sections/genesis-pass/GenesisPass'
 import AboutGenesisPass from './sections/about-genesis-pass/AboutGenesisPass'
 import Squad from './sections/squad/Squad'
 import Outro from './sections/outro/Outro'
+import REGlitch from './sections/re-glitch/REGlitch'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <NFTCollection />
       <GrabTicket />
       <ThreeLogos />
+      <REGlitch />
       <GenesisPass />
       <AboutGenesisPass />
       <Squad />
