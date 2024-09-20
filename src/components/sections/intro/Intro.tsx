@@ -1,10 +1,11 @@
-import { LeftFrame, RightFrame, Icons } from '@/components/frame/Frame'
+import { LeftFrame, RightFrame } from '@/components/frame/Frame'
 import angel from 'assets/img/intro/angel.webp'
 import desktop_angel from 'assets/img/intro/desktop-angel.webp'
 import character from 'assets/img/intro/character.webp'
 import frame from 'assets/img/intro/frame.webp'
 import font from 'assets/img/intro/font.webp'
 import { Transition } from '@/components/animation/slideIn'
+import Menu from '@/components/menu/Menu'
 
 function Character() {
   return (
@@ -62,7 +63,7 @@ export default function Intro() {
         <LeftFrame />
       </div>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-        <Icons />
+        <Menu />
       </div>
       <div className="absolute right-0 h-screen">
         <RightFrame />
