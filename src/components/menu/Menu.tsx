@@ -29,7 +29,9 @@ const imageContainerVariants = {
   exit: { width: 'auto', transition: { duration: 0.01 } }
 }
 
+
 function MenuList() {
+  const [hoveredIndex, setHoveredIndex] = useState(null)
   const menuList = [
     { name: 'home', path: '' },
     { name: 'about', path: '' },
@@ -41,42 +43,50 @@ function MenuList() {
   ]
 
   return (
-    <div className="absolute bottom-[7px] left-1/2 -translate-x-1/2 overflow-hidden">
+    <div className="absolute bottom-[7px] left-1/2 transform -translate-x-1/2 overflow-hidden">
       <motion.div
         variants={menuVariants}
         initial="hidden"
         animate="visible"
         exit="hidden"
-        className="flex items-start justify-center rounded-full border border-white/20 bg-white/30 shadow-lg backdrop-blur-md"
+        className="shadow-lg backdrop-blur-md bg-white/30 border border-white/20 rounded-full flex items-center justify-center"
         style={{ maxWidth: '500px', margin: '0 auto' }}
       >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
           exit={{ opacity: 1 }}
-          className="flex items-center justify-between gap-4 p-4"
+          transition={{ delay: 0.1 }}
+          className="flex p-4 items-center relative"
         >
-          {menuList.map((item) => (
-            <a
+          <motion.div
+            className="absolute w-[60px] h-[60px] bg-red-500 rounded-full"
+            initial={false}
+            animate={{
+              x: hoveredIndex !== null ? hoveredIndex * 60 : -74, // Move off-screen when not hovered
+              opacity: hoveredIndex !== null ? 1 : 0,
+              transition: {
+                x: { type: 'spring', stiffness: 300, damping: 40 },
+                opacity: { duration: 0.2 }
+              }
+            }}
+          />
+          {menuList.map((item, index) => (
+            <motion.a
               key={item.name}
               href={item.path}
-              className="group relative flex flex-col items-center"
+              className="flex flex-col items-center relative z-10 w-full"
+              onHoverStart={() => setHoveredIndex(index)}
+              onHoverEnd={() => setHoveredIndex(null)}
             >
-              <motion.div
-                variants={imageContainerVariants}
-                initial="normal"
-                exit="exit"
-                className="flex h-[50px] items-center justify-center rounded-full transition-all duration-300 group-hover:bg-red-500"
-              >
+              <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center">
                 <img
                   src={image[item.name]}
                   alt={item.name}
-                  className="h-auto w-[40px]"
+                  className="w-[40px] h-auto"
                 />
-              </motion.div>
-              {/* <span className="text-xs capitalize">{item.name}</span> */}
-            </a>
+              </div>
+            </motion.a>
           ))}
         </motion.div>
       </motion.div>
