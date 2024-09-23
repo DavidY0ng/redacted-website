@@ -113,7 +113,7 @@ export default function Menu() {
   }, [])
 
   return (
-    <div className="relative flex w-[500px] items-center justify-center gap-3">
+    <div className="relative flex w-[300px] md:w-[500px] items-center justify-center gap-3">
       <img
         src={icons.icon1}
         loading="eager"

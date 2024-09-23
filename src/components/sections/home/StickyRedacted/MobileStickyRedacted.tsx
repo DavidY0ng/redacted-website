@@ -40,7 +40,7 @@ export default function Redacted() {
   const phoneHeight = typeof window !== 'undefined' ? window.innerHeight : 800 // Fallback to 800px if window is not defined
 
   // Calculate the initial positions based on phone height
-  const initialRCenterPosition = `-${phoneHeight * 1.}px`
+  const initialRCenterPosition = `-${phoneHeight * 1.3}px`
 
   // Conditionally set the multiplier for the letter E based on screen height
   const eMultiplier = phoneHeight <= 720 ? 0.7 : 0.8
