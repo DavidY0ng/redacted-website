@@ -40,7 +40,7 @@ function MenuList() {
         initial="hidden"
         animate="visible"
         exit="hidden"
-        className="shadow-lg backdrop-blur-md bg-white/30 border border-white/20"
+        className="shadow-lg backdrop-blur-md bg-white/30 border border-white/20 rounded-full"
         style={{ maxWidth: '500px', margin: '0 auto' }}
       >
         <motion.div

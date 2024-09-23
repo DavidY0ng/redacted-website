@@ -8,6 +8,7 @@ import reGen from 'assets/img/sections/landing/re-gen.webp'
 import mobileReGen from 'assets/img/sections/landing/mobile/re-gen.png'
 import { Icons, WholeStandardFrame } from '@/components/frame/Frame'
 import { motion } from 'framer-motion'
+import Menu from '@/components/menu/Menu'
 
 function GirlImg() {
   return (
@@ -33,7 +34,7 @@ function GirlImg() {
         className="block h-screen max-h-[550px] w-full md:hidden md:max-h-full"
       ></img>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-        <Icons />
+        <Menu />
       </div>
     </div>
   )
