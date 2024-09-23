@@ -5,19 +5,21 @@ import image from '@/assets/img/menu/index'
 
 const menuVariants = {
   hidden: {
-    width: '100px',
+    width: '40px',
+    height: '80px',
     opacity: 0,
     transition: {
-      width: { duration: 0.3 },
-      opacity: { duration: 0.2 }
+      width: { duration: 1 },
+      opacity: { duration: 2 }
     }
   },
   visible: {
+    height: '80px',
     width: '500px',
     opacity: 1,
     transition: {
-      width: { duration: 0.5 },
-      opacity: { duration: 0.3, delay: 0.1 }
+      width: { duration: 1 },
+      opacity: { duration: 0.5, delay: 0.1 }
     }
   }
 }
@@ -34,20 +36,20 @@ function MenuList() {
   ]
 
   return (
-    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 overflow-hidden">
+    <div className="absolute bottom-[7px] left-1/2 transform -translate-x-1/2 overflow-hidden">
       <motion.div
         variants={menuVariants}
         initial="hidden"
         animate="visible"
         exit="hidden"
-        className="shadow-lg backdrop-blur-md bg-white/30 border border-white/20 rounded-full"
+        className="shadow-lg backdrop-blur-md bg-white/30 border border-white/20 rounded-full flex items-start justify-center"
         style={{ maxWidth: '500px', margin: '0 auto' }}
       >
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="flex gap-4 justify-between p-4"
+          animate={{ opacity: 1.5 }}
+          transition={{ delay: 1 }}
+          className="flex gap-4 justify-between p-4 items-center"
         >
           {menuList.map((item) => (
             <a
@@ -60,7 +62,7 @@ function MenuList() {
                 alt={item.name}
                 className="w-[50px] h-auto mb-2"
               />
-              <span className="text-xs capitalize">{item.name}</span>
+              {/* <span className="text-xs capitalize">{item.name}</span> */}
             </a>
           ))}
         </motion.div>
