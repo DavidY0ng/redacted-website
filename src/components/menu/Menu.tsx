@@ -6,11 +6,11 @@ import image from '@/assets/img/menu/index'
 const menuVariants = {
   hidden: {
     width: '40px',
-    height: '80px',
+    height: '40px',
     opacity: 0,
     transition: {
-      width: { duration: 1 },
-      opacity: { duration: 2 }
+      width: { duration: 0.5 },
+      opacity: { duration: 0.9 }
     }
   },
   visible: {
@@ -18,10 +18,15 @@ const menuVariants = {
     width: '500px',
     opacity: 1,
     transition: {
-      width: { duration: 1 },
+      width: { duration: 0.5 },
       opacity: { duration: 0.5, delay: 0.1 }
     }
   }
+}
+
+const imageContainerVariants = {
+  normal: { width: '50px' },
+  exit: { width: 'auto', transition: { duration: 0.01 } }
 }
 
 function MenuList() {
@@ -36,32 +41,40 @@ function MenuList() {
   ]
 
   return (
-    <div className="absolute bottom-[7px] left-1/2 transform -translate-x-1/2 overflow-hidden">
+    <div className="absolute bottom-[7px] left-1/2 -translate-x-1/2 overflow-hidden">
       <motion.div
         variants={menuVariants}
         initial="hidden"
         animate="visible"
         exit="hidden"
-        className="shadow-lg backdrop-blur-md bg-white/30 border border-white/20 rounded-full flex items-start justify-center"
+        className="flex items-start justify-center rounded-full border border-white/20 bg-white/30 shadow-lg backdrop-blur-md"
         style={{ maxWidth: '500px', margin: '0 auto' }}
       >
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1.5 }}
-          transition={{ delay: 1 }}
-          className="flex gap-4 justify-between p-4 items-center"
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          exit={{ opacity: 1 }}
+          className="flex items-center justify-between gap-4 p-4"
         >
           {menuList.map((item) => (
             <a
               key={item.name}
               href={item.path}
-              className="flex flex-col items-center"
+              className="group relative flex flex-col items-center"
             >
-              <img
-                src={image[item.name]}
-                alt={item.name}
-                className="w-[50px] h-auto mb-2"
-              />
+              <motion.div
+                variants={imageContainerVariants}
+                initial="normal"
+                exit="exit"
+                className="flex h-[50px] items-center justify-center rounded-full transition-all duration-300 group-hover:bg-red-500"
+              >
+                <img
+                  src={image[item.name]}
+                  alt={item.name}
+                  className="h-auto w-[40px]"
+                />
+              </motion.div>
               {/* <span className="text-xs capitalize">{item.name}</span> */}
             </a>
           ))}
@@ -91,7 +104,7 @@ export default function Menu() {
   }, [])
 
   return (
-    <div className="relative flex items-center justify-center gap-3 w-[500px]">
+    <div className="relative flex w-[500px] items-center justify-center gap-3">
       <img
         src={icons.icon1}
         loading="eager"
