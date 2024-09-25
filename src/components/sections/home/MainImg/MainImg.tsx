@@ -23,7 +23,7 @@ function GirlImg() {
         <img
           src={girl_gif}
           loading="eager"
-          className=" h-screen  md:max-h-[1000px] md:max-w-[1200px] lg:max-w-[1400px]"
+          className=" h-screen  md:max-w-[400px] lg:max-w-[600px]"
         ></img>
       </motion.div>
 
@@ -33,9 +33,6 @@ function GirlImg() {
         loading="eager"
         className="block h-screen max-h-[550px] w-full md:hidden md:max-h-full"
       ></img>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-        <Menu />
-      </div>
     </div>
   )
 }
@@ -52,7 +49,7 @@ export function Logo() {
         <img
           src={logo}
           loading="eager"
-          className="h-screen md:w-full md:max-h-[1100px] md:max-w-[1200px] lg:w-full lg:max-w-[1600px]"
+          className="h-screen md:w-full md:max-w-[1200px] lg:w-full lg:max-w-[2000px]"
         ></img>
       </div>
     </motion.div>
@@ -88,12 +85,12 @@ export default function MainImage() {
       >
         <GirlImg />
       </Transition>
-      <Transition className="absolute z-20" custom={{ delay: 5 }}>
+      <Transition className="absolute z-20" custom={{ delay: 4 }}>
         <REGenImg />
       </Transition>
 
       {/* frame */}
-      <Transition className="h-screen" custom={{ delay: 4 }}>
+      <Transition className="h-screen" custom={{ delay: 3.5 }}>
         <WholeStandardFrame />
       </Transition>
     </div>

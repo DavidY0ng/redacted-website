@@ -57,9 +57,9 @@ export default function Redacted() {
     // Function to update scale and positions based on screen size
     const handleScreenResize = (event: any) => {
       if (event.matches) {
-        setLetterScaleRange([2.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
+        setLetterScaleRange([4.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
         setRPosition({ top: '-200px', left: '75px' }) // Adjust R's position
-        setEPosition({ top: '100px', left: '-30px' }) // Adjust E's position
+        setEPosition({ top: '280px', left: '-30px' }) // Adjust E's position
       } else {
         setLetterScaleRange([4.7, 1]) // Set scale to 3.3 for other screens
         setRPosition({ top: '-200px', left: '0px' }) // Default R position

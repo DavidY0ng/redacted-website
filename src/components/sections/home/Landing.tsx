@@ -8,6 +8,7 @@ import { Transition } from '@/components/animation/slideIn'
 import FireBg from './fire/fire'
 import React, { useEffect, useState } from 'react'
 import { Logo } from './MainImg/MainImg'
+import Menu from '@/components/menu/Menu'
 
 export default function LandingPage() {
   const { loadingComplete, startLoadingAnimation } = useLoading()
@@ -46,8 +47,7 @@ export default function LandingPage() {
       {showLoading ? (
         <motion.div
           className="bg-red fixed inset-0 z-50 flex items-center justify-center"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          variants={loadingVariants}
         >
           <div className="absolute bottom-[20%] left-0">
             <LoadingPage />
@@ -87,6 +87,9 @@ export default function LandingPage() {
               animate="visible"
             >
               <MainImage />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[999]">
+                <Menu />
+              </div>
             </motion.div>
           </div>
 
