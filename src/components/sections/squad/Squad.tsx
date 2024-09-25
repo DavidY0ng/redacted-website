@@ -64,12 +64,13 @@ export default function Squad() {
           </h1>
         </div>
 
-        <div className="md:mb-8">
+        <div className="h-full md:mb-8">
           <Carousel
             images={desktopImages}
             mobileImages={mobileImages}
             loop={true}
             itemsToShow={3}
+            gap="16px"
           />
         </div>
       </div>
