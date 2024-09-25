@@ -75,7 +75,7 @@ export default function LandingPage() {
               </motion.div>
             </div>
           )}
-          <div className="flex justify-center bg-gray-500 ">
+          <div className="flex justify-center">
             <Logo />
           </div>
 
@@ -87,9 +87,14 @@ export default function LandingPage() {
               animate="visible"
             >
               <MainImage />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[999]">
+              <motion.div
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[999]"
+                initial={{ opacity: 0 }} // Starts with opacity 0
+                animate={{ opacity: 1 }} // Animates to opacity 1
+                transition={{ delay: 3.5, duration: 0.3 }} // 3.5s delay and 0.5s transition duration
+              >
                 <Menu />
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
