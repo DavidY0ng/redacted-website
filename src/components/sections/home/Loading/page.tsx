@@ -7,7 +7,11 @@ import square from 'assets/img/sections/loading/square.png'
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 
-function LoadingProgress() {
+function LoadingProgress({
+  onProgressComplete
+}: {
+  onProgressComplete: () => void
+}) {
   const [progress, setProgress] = React.useState(0)
   const duration = 5000 // 5 seconds
   const steps = 100 // Number of steps
@@ -18,6 +22,7 @@ function LoadingProgress() {
       setProgress((prevProgress) => {
         if (prevProgress >= 100) {
           clearInterval(timer)
+          onProgressComplete() // Trigger the callback when progress reaches 100
           return 100
         }
         return prevProgress + 1
@@ -25,7 +30,7 @@ function LoadingProgress() {
     }, interval)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [interval, onProgressComplete])
 
   return (
     <div className="items-center space-x-5 md:flex">
@@ -120,9 +125,20 @@ export function LoadingTrapezium() {
 }
 
 export default function LoadingPage() {
+  const [isCompleted, setIsCompleted] = React.useState(false)
+
+  const handleProgressComplete = () => {
+    setIsCompleted(true)
+  }
+
   return (
-    <div className="items-center space-x-5 md:flex ">
-      <LoadingProgress />
-    </div>
+    <motion.div
+      className="items-center space-x-5 md:flex overflow-hidden"
+      initial={{ opacity: 1, y: 0 }} // Start at full opacity and initial position
+      animate={isCompleted ? { opacity: 0, y: 50 } : {}} // Trigger fade out and slide down when completed
+      transition={{ duration: 0.5 }} // Transition duration of 0.5s
+    >
+      <LoadingProgress onProgressComplete={handleProgressComplete} />
+    </motion.div>
   )
 }

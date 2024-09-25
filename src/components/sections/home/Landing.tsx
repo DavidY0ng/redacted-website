@@ -6,18 +6,16 @@ import MobileStickyRedacted from './StickyRedacted/MobileStickyRedacted'
 import DesktopStickyRedacted from './StickyRedacted/DesktopStickyRedacted'
 import { Transition } from '@/components/animation/slideIn'
 import FireBg from './fire/fire'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { Logo } from './MainImg/MainImg'
 import Menu from '@/components/menu/Menu'
 
 export default function LandingPage() {
   const { loadingComplete, startLoadingAnimation } = useLoading()
   const [showLoading, setShowLoading] = useState(true)
-
   useEffect(() => {
     // Show loading page on initial load or refresh
     setShowLoading(true)
-
     // Simulate loading process
     const timer = setTimeout(() => {
       setShowLoading(false)
@@ -25,6 +23,20 @@ export default function LandingPage() {
 
     return () => clearTimeout(timer)
   }, [])
+
+  // Handle toggling the scroll state when loading is active
+  useEffect(() => {
+    if (showLoading) {
+      document.body.style.overflow = 'hidden' // Disable scroll
+    } else {
+      document.body.style.overflow = 'auto' // Re-enable scroll
+    }
+
+    // Cleanup when the component unmounts
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [showLoading]) // Watch for changes in `showLoading`
 
   const containerVariants = {
     hidden: { opacity: 0 },
