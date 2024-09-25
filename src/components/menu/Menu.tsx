@@ -78,7 +78,7 @@ function MenuList() {
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
             >
-              <div className="flex size-[60px] items-center justify-center rounded-full">
+              <div className="flex md:size-[60px] size-[50px] items-center justify-center rounded-full">
                 <img
                   src={image[item.name]}
                   alt={item.name}
