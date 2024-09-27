@@ -13,7 +13,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-red-background p-2 text-white sm:p-4">
+    <footer className="bg-red-background p-2 text-white sm:p-4 font-eurostile">
       <div className="mx-auto max-w-[1400px]">
         <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
           <div className="order-2 mb-8 md:order-1 md:mb-0">
@@ -24,7 +24,7 @@ export default function Footer() {
               height={200}
               className="mb-4"
             />
-            <div className="flex space-x-4">
+            <div className="flex gap-2">
               <a href="#" className="text-white hover:text-secondary">
                 <span className="sr-only">X</span>
                 <svg className="size-6" fill="currentColor" viewBox="0 0 24 24">
