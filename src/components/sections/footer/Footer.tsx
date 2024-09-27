@@ -67,7 +67,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="relative -ml-4 w-1/4 min-w-28 overflow-hidden bg-gray-200 p-2 text-sm font-bold text-gray-500 hover:bg-gray-600 sm:text-base md:w-auto"
+                className="relative -ml-4 w-1/4 min-w-28 overflow-hidden bg-gray-200 p-2 text-sm font-bold text-gray-500 hover:bg-gray-300 sm:text-base md:w-auto"
                 style={{
                   clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0% 100%)'
                 }}

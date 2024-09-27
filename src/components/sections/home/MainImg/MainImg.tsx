@@ -49,7 +49,7 @@ export function Logo() {
         <img
           src={logo}
           loading="eager"
-          className="h-screen md:w-full md:max-w-[1200px] lg:w-full lg:max-w-[2000px]"
+          className="h-screen w-full  md:max-w-[1500px] lg:max-w-[2000px]"
         ></img>
       </div>
     </motion.div>

@@ -57,13 +57,13 @@ export default function Redacted() {
     // Function to update scale and positions based on screen size
     const handleScreenResize = (event: any) => {
       if (event.matches) {
-        setLetterScaleRange([4.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
-        setRPosition({ top: '-200px', left: '75px' }) // Adjust R's position
-        setEPosition({ top: '280px', left: '-30px' }) // Adjust E's position
+        setLetterScaleRange([3.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
+        setRPosition({ top: '-200px', left: '0px' }) // Adjust R's position
+        setEPosition({ top: '200px', left: '-100px' }) // Adjust E's position
       } else {
-        setLetterScaleRange([4.7, 1]) // Set scale to 3.3 for other screens
-        setRPosition({ top: '-200px', left: '0px' }) // Default R position
-        setEPosition({ top: '330px', left: '-105px' }) // Default E position
+        setLetterScaleRange([4.4, 1]) // Set scale to 3.3 for other screens
+        setRPosition({ top: '-200px', left: '-100px' }) // Default R position
+        setEPosition({ top: '300px', left: '-205px' }) // Default E position
       }
     }
 
