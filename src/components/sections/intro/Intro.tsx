@@ -3,9 +3,10 @@ import angel from 'assets/img/intro/angel.webp'
 import desktop_angel from 'assets/img/intro/desktop-angel.webp'
 import character from 'assets/img/intro/character.webp'
 import frame from 'assets/img/intro/frame.webp'
-import font from 'assets/img/intro/font.webp'
 import { Transition } from '@/components/animation/slideIn'
 import Menu from '@/components/menu/Menu'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 function Character() {
   return (
@@ -34,28 +35,69 @@ function Font() {
 }
 
 export default function Intro() {
+  const ref = useRef(null)
+  const isInView = useInView(ref)
+
+  const imageVariants = {
+    hidden: { x: '100%' },
+    visible: {
+      x: 0,
+      transition: {
+        duration: 1.6
+      }
+    }
+  }
+
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 1.8,
+        duration: 0.5
+      }
+    }
+  }
+
   return (
-    <div className="relative h-screen bg-black">
-      <Transition>
+    <div className="relative h-screen bg-black overflow-hidden" ref={ref}>
+      <motion.div
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        variants={imageVariants}
+      >
         <img
           src={angel}
           loading="lazy"
           className="absolute h-screen w-full md:hidden"
-        ></img>
+          alt="Angel (mobile)"
+        />
         <img
           src={desktop_angel}
           loading="lazy"
           className="absolute hidden h-screen w-full md:block"
-        ></img>
-      </Transition>
-      <div className="flex justify-center ">
+          alt="Angel (desktop)"
+        />
+      </motion.div>
+      <div className="flex justify-center">
         <div className="absolute mx-auto flex h-screen w-full max-w-[1600px] flex-col items-center justify-around p-10 md:flex-row md:justify-between">
-          <Transition className="flex w-full justify-center">
+          <motion.div
+            className="flex w-full justify-center"
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            variants={fadeInVariants}
+          >
             <Font />
-          </Transition>
-          <Transition className="flex w-full justify-center">
+          </motion.div>
+
+          <motion.div
+            className="flex w-full justify-center"
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            variants={fadeInVariants}
+          >
             <Character />
-          </Transition>
+          </motion.div>
         </div>
       </div>
 
