@@ -11,7 +11,7 @@ function DesktopHumanRace() {
   const controls = useAnimation()
   const ref = React.useRef(null)
   const isInView = useInView(ref, {
-    amount: 0.5
+    amount: 0.3
   })
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function DesktopHumanRace() {
   }, [controls, isInView])
 
   return (
-    <div className="relative hidden h-[200vh] bg-black md:block">
+    <div className="relative hidden h-[330vh] bg-black md:block">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <div className="relative size-full max-w-[1600px]">
           <motion.img
@@ -89,8 +89,7 @@ function DesktopHumanRace() {
         </div>
       </div>
 
-      <div ref={ref} className="h-[170vh]" />
-      <div className="h-screen" />
+      <div ref={ref} className="h-[330vh]" />
     </div>
   )
 }
@@ -99,7 +98,7 @@ function MobileHumanRace() {
   const controls = useAnimation()
   const ref = React.useRef(null)
   const isInView = useInView(ref, {
-    amount: 0.5
+    amount: 0.3
   })
 
   useEffect(() => {
@@ -111,7 +110,7 @@ function MobileHumanRace() {
   }, [controls, isInView])
 
   return (
-    <div className="relative block h-[200vh] bg-black md:hidden">
+    <div className="relative block h-[250vh] bg-black md:hidden">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <div className="relative size-full max-w-[1600px]">
           <motion.img
@@ -176,7 +175,7 @@ function MobileHumanRace() {
         </div>
       </div>
 
-      <div ref={ref} className="h-[170vh]" />
+      <div ref={ref} className="h-[250vh]" />
       <div className="h-screen" />
     </div>
   )
