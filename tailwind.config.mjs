@@ -55,7 +55,9 @@ export const theme = {
       sm: "calc(var(--radius) - 4px)"
     },
     fontFamily: {
-      sans: ["var(--font-sans)", ...fontFamily.sans]
+      sans: ["var(--font-sans)", ...fontFamily.sans],
+      eurostile: ['Eurostile', 'sans-serif'],
+      'eurostile-extended': ['Eurostile Extended', 'sans-serif'],
     },
     keyframes: {
       "accordion-down": {

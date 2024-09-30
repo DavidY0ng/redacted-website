@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import FooterLogo from '@/assets/img/sections/footer/footer_logo.png'
 import FooterLine from '@/assets/img/sections/footer/footer_line.png'
+import FooterLineMobile from '@/assets/img/sections/footer/footer_line_mobile.png'
 import BackToTop from '@/assets/img/sections/footer/back_to_top.png'
 import RedactedIcon from '@/assets/img/sections/footer/re_icon_small.png'
 
@@ -13,10 +14,10 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-red-background p-2 text-white sm:p-4">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
-          <div className="order-2 mb-8 md:order-1 md:mb-0">
+    <footer className="xxl:px-2 bg-red-background p-8 font-eurostile text-white md:py-16">
+      <div className="mx-auto max-w-[1400px] pb-5 pt-2 md:pt-20">
+        <div className="flex flex-col space-y-8 md:flex-row md:justify-between md:space-y-0">
+          <div className="self-start md:order-1">
             <img
               src={FooterLogo}
               alt="Footer Logo"
@@ -53,44 +54,92 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="order-1 mb-8 w-full text-center md:order-2 md:mb-0 md:text-right">
-            <h2 className="mb-4 text-xl font-bold">SUBSCRIBE FOR UPDATES</h2>
+
+          <div className="w-full md:order-2">
+            <div className="pb-5 pt-4">
+              <img
+                src={FooterLineMobile}
+                alt="Footer Line"
+                className="-mx-2 w-full min-w-full object-cover md:hidden"
+              />
+            </div>
+            <h2 className="mb-4 text-right font-eurostile-extended text-xl font-bold md:text-right">
+              SUBSCRIBE FOR UPDATES
+            </h2>
             <form className="flex w-full flex-row items-center justify-center px-2 sm:px-0 md:justify-end">
               <input
                 type="email"
                 placeholder="ENTER YOUR EMAIL"
-                className="w-3/4 min-w-32 bg-white p-2 text-sm text-primary sm:text-base md:w-64"
+                className="h-12 w-full min-w-32 bg-white p-2 text-sm text-primary placeholder:text-center sm:text-base md:w-64 lg:w-80"
                 required
                 style={{
-                  clipPath: 'polygon(0 0, 100% 0, 94% 100%, 0% 100%)'
+                  clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)'
                 }}
               />
+
               <button
                 type="submit"
-                className="relative -ml-4 w-1/4 min-w-28 overflow-hidden bg-gray-200 p-2 text-sm font-bold text-gray-500 hover:bg-gray-600 sm:text-base md:w-auto"
+                className="relative -ml-8 h-12 w-1/4 min-w-28 overflow-hidden bg-gray-200 p-2 font-eurostile-extended text-sm font-bold text-gray-500 hover:bg-gray-600 hover:text-white sm:text-base md:w-auto lg:w-40 lg:p-3"
                 style={{
-                  clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0% 100%)'
+                  clipPath: 'polygon(5% 0, 100% 0, 100% 100%, 0% 100%)'
                 }}
               >
                 <span className="relative z-10">SIGN ME UP</span>
               </button>
             </form>
+            <div className="py-5">
+              <img
+                src={FooterLineMobile}
+                alt="Footer Line"
+                className="-mx-1 w-full min-w-full object-cover md:hidden"
+              />
+            </div>
           </div>
         </div>
-        <img
-          src={FooterLine}
-          alt="Footer Line"
-          className="w-full min-w-full object-cover md:mt-2"
-        />
-        <div className="flex flex-row items-center justify-between space-y-4 text-sm md:mt-4 md:items-start md:space-y-0">
-          <p>
-            &copy; 2024 <span className="font-extrabold">REDACTED</span>
-          </p>
+        {/* Footer Line */}
+        <div>
+          <img
+            src={FooterLine}
+            alt="Footer Line"
+            className="-mx-2 hidden w-full min-w-full object-cover sm:-mx-4 md:mt-2 md:block"
+          />
+        </div>
+        {/* Bottom Section */}
+        <div className="mt-4 flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 md:mt-0">
+          <div className="flex w-full items-center justify-between sm:w-auto sm:justify-start">
+            <div className="flex flex-col sm:flex-row sm:space-x-4">
+              <p>
+                &copy; 2024{' '}
+                <span className="font-eurostile-extended">REDACTED</span>
+              </p>
+              <a href="#" className="hover:underline sm:hidden">
+                Terms & Conditions
+              </a>
+            </div>
+
+            <motion.button
+              onClick={scrollToTop}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              className="mx-auto w-1/3 sm:hidden"
+            >
+              <img
+                src={BackToTop}
+                alt="Back to top"
+                width={60}
+                height={60}
+                className="cursor-pointer"
+              />
+            </motion.button>
+          </div>
+
           <motion.button
             onClick={scrollToTop}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            className="hidden sm:mx-auto sm:block"
           >
             <img
               src={BackToTop}
@@ -100,9 +149,12 @@ export default function Footer() {
               className="cursor-pointer"
             />
           </motion.button>
-          <a href="#" className="hover:underline">
-            Terms & Conditions
-          </a>
+
+          <div className="hidden sm:block">
+            <a href="#" className="hover:underline">
+              Terms & Conditions
+            </a>
+          </div>
         </div>
       </div>
     </footer>
