@@ -36,7 +36,7 @@ function Font() {
 
 export default function Intro() {
   const ref = useRef(null)
-  const isInView = useInView(ref)
+  const isInView = useInView(ref, { once: true })
 
   const imageVariants = {
     hidden: { x: '100%' },
