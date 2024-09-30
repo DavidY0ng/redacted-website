@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import useIsMobile from '@/components/hooks/useIsMobile'
+import leftArrow from '@/assets/img/carousel/left_arrow.png'
+import rightArrow from '@/assets/img/carousel/right_arrow.png'
 
 interface CarouselProps {
   images: string[]
@@ -54,13 +55,19 @@ const Carousel: React.FC<CarouselProps> = ({
     >
       <Button
         onClick={() => handleNavigation('prev')}
-        className="z-10 ml-2 mr-4"
+        className="z-10 ml-2 mr-4 bg-transparent hover:bg-transparent"
         disabled={!loop && currentIndex === 0}
-        variant="default"
+        variant="ghost"
         size="icon"
         aria-label="Previous image"
       >
-        <ChevronLeft size={24} />
+        <img
+          src={leftArrow}
+          alt="Previous"
+          width={24}
+          height={24}
+          className="opacity-70 transition-opacity hover:opacity-100"
+        />
       </Button>
 
       <div
@@ -114,13 +121,19 @@ const Carousel: React.FC<CarouselProps> = ({
 
       <Button
         onClick={() => handleNavigation('next')}
-        className="z-10 ml-4 mr-2"
+        className="z-10 ml-4 mr-2 bg-transparent hover:bg-transparent"
         disabled={!loop && currentIndex >= maxIndex}
-        variant="default"
+        variant="ghost"
         size="icon"
         aria-label="Next image"
       >
-        <ChevronRight size={24} />
+        <img
+          src={rightArrow}
+          alt="Next"
+          width={24}
+          height={24}
+          className="opacity-70 transition-opacity hover:opacity-100"
+        />
       </Button>
     </div>
   )
