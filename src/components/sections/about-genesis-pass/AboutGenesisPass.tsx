@@ -8,7 +8,7 @@ function AboutGenesisPassContent({ isMobile }: { isMobile: boolean }) {
   const [topPosition, setTopPosition] = useState('top-0')
 
   const handleResize = useCallback(() => {
-    setTopPosition(window.innerHeight > 1000 ? 'top-[10%]' : 'top-0')
+    setTopPosition(window.innerHeight > 1000 ? 'top-[10%]' : 'top-[5%]')
   }, [])
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function AboutGenesisPassContent({ isMobile }: { isMobile: boolean }) {
   }, [handleResize])
 
   return (
-    <div className="relative z-0 h-screen bg-black">
+    <div className="relative z-0 h-[100vh] md:h-[100vh] lg:h-[200vh] bg-black">
       <WholeFrame />
       <div className="relative size-full">
         <img
@@ -34,14 +34,14 @@ function AboutGenesisPassContent({ isMobile }: { isMobile: boolean }) {
             className={`flex flex-col ${topPosition} ${
               isMobile
                 ? 'mx-auto w-full max-w-[400px] items-center px-4'
-                : 'absolute right-[5%] w-1/2 p-6 lg:right-[10%] lg:w-1/3'
+                : 'absolute right-[5%] w-1/2 p-6 lg:right-[20%] lg:w-1/3'
             }`}
           >
             <h2
-              className={`font-euroblack text-red mb-5 leading-tight ${
+              className={`font-euroblack text-red mb-5 leading-tight mt-10 md:mt-10 lg:mt-0 ${
                 isMobile
                   ? 'text-center text-4xl'
-                  : 'text-left text-4xl lg:text-5xl xl:text-6xl'
+                  : 'text-left text-4xl md:text-5xl lg:text-[70px]'
               }`}
             >
               HEADLINE HERE
