@@ -57,13 +57,13 @@ export default function Redacted() {
     // Function to update scale and positions based on screen size
     const handleScreenResize = (event: any) => {
       if (event.matches) {
-        setLetterScaleRange([4.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
-        setRPosition({ top: '-200px', left: '75px' }) // Adjust R's position
-        setEPosition({ top: '280px', left: '-30px' }) // Adjust E's position
+        setLetterScaleRange([3.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
+        setRPosition({ top: '-200px', left: '0px' }) // Adjust R's position
+        setEPosition({ top: '200px', left: '-100px' }) // Adjust E's position
       } else {
-        setLetterScaleRange([4.7, 1]) // Set scale to 3.3 for other screens
-        setRPosition({ top: '-200px', left: '0px' }) // Default R position
-        setEPosition({ top: '330px', left: '-105px' }) // Default E position
+        setLetterScaleRange([4.4, 1]) // Set scale to 3.3 for other screens
+        setRPosition({ top: '-200px', left: '-100px' }) // Default R position
+        setEPosition({ top: '300px', left: '-205px' }) // Default E position
       }
     }
 
@@ -96,13 +96,13 @@ export default function Redacted() {
   return (
     <Transition
       className="h-full w-full relative flex justify-center"
-      custom={{ delay: 2 }}
+      custom={{ delay: 1.5 }}
     >
       <motion.div
         className="w-full flex gap-1 justify-center items-center"
         initial={{ rotate: -40, scale: 0.6, x: -900 }}
         animate={{ rotate: 0, scale: 1, x: 0 }}
-        transition={{ duration: 3.5 }}
+        transition={{ duration: 2 }}
       >
         <motion.div
           className=""

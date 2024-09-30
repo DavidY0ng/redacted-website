@@ -18,7 +18,7 @@ function GirlImg() {
         className="hidden md:flex"
         initial={{ rotate: 40, scale: 0.6, x: 900 }}
         animate={{ rotate: 0, scale: 1, x: 0 }}
-        transition={{ duration: 3.5 }}
+        transition={{ duration: 2 }}
       >
         <img
           src={girl_gif}
@@ -49,7 +49,7 @@ export function Logo() {
         <img
           src={logo}
           loading="eager"
-          className="h-screen md:w-full md:max-w-[1200px] lg:w-full lg:max-w-[2000px]"
+          className="h-screen w-full  md:max-w-[1500px] lg:max-w-[2000px]"
         ></img>
       </div>
     </motion.div>
@@ -81,7 +81,7 @@ export default function MainImage() {
       </Transition> */}
       <Transition
         className="absolute bottom-0 z-10 md:bottom-auto"
-        custom={{ delay: 2 }}
+        custom={{ delay: 1.5 }}
       >
         <GirlImg />
       </Transition>

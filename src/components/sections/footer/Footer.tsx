@@ -25,7 +25,7 @@ export default function Footer() {
               height={200}
               className="mb-4"
             />
-            <div className="flex space-x-4">
+            <div className="flex gap-2">
               <a href="#" className="text-white hover:text-secondary">
                 <span className="sr-only">X</span>
                 <svg className="size-6" fill="currentColor" viewBox="0 0 24 24">

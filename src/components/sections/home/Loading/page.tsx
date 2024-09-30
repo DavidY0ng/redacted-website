@@ -60,13 +60,13 @@ function LoadingFont({ progress }: { progress: number }) {
 
   return (
     <div>
-      <div className="flex text-lg text-white">
+      <div className="flex text-xl text-white font-eurostile">
         <AnimatedText
           text={letters}
           repeatDelay={3000}
           className="animate-pulse"
         ></AnimatedText>
-        <span className="ml-2">{Math.round(progress)}%</span>
+        <span className="ml-2 text-lg">{Math.round(progress)}%</span>
       </div>
     </div>
   )
