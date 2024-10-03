@@ -11,17 +11,17 @@ function LeftFrame() {
       <img
         src={left1}
         loading="eager"
-        className="absolute left-0 top-5 w-[30px] md:w-[40px]"
+        className="absolute left-0 top-5 w-[20px] lg:w-[40px]"
       ></img>
       <img
         src={left2}
         loading="eager"
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-[30px] md:w-[30px]"
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-[15px] lg:w-[30px]"
       ></img>
       <img
         src={left3}
         loading="eager"
-        className="absolute bottom-5 left-0 mb-3 w-[30px] md:mb-5 md:w-[40px]"
+        className="absolute bottom-5 left-0 mb-3 w-[20px] lg:w-[40px]"
       ></img>
     </div>
   )
@@ -33,17 +33,17 @@ function RightFrame() {
       <img
         src={right1}
         loading="eager"
-        className="absolute right-0 top-5 w-[30px] md:w-[40px]"
+        className="absolute right-0 top-5 w-[20px] lg:w-[40px]"
       ></img>
       <img
         src={right2}
         loading="eager"
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[30px] md:w-[30px]"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[15px] lg:w-[30px]"
       ></img>
       <img
         src={right3}
         loading="eager"
-        className="absolute bottom-5 right-0 mb-3 w-[30px] md:mb-5 md:w-[40px]"
+        className="absolute bottom-5 right-0 mb-3 w-[20px] lg:w-[40px]"
       ></img>
     </div>
   )
