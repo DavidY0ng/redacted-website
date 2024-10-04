@@ -56,11 +56,6 @@ export default function Redacted() {
   const eTop = useTransform(scrollY, [0, 800], [initialECenterPosition, '0%'])
 
   const completeWordOpacity = useTransform(scrollY, [800, 1300], [0, 1])
-  const completeWordVisibility = useTransform(
-    scrollY,
-    [1000, 1001],
-    ['none', 'block']
-  )
 
   return (
     <div className="h-full w-full relative flex justify-center">

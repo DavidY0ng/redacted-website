@@ -87,11 +87,6 @@ export default function Redacted() {
   const eTop = useTransform(scrollY, [0, 1000], [ePosition.top, '0%'])
 
   const completeWordOpacity = useTransform(scrollY, [1000, 1500], [0, 1])
-  const completeWordVisibility = useTransform(
-    scrollY,
-    [1000, 1001],
-    ['none', 'block']
-  )
 
   return (
     <Transition
