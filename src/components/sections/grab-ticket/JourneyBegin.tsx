@@ -1,4 +1,3 @@
-import dragon_girl_mobile from '@/assets/img/grab-ticket/dragon-girl-mobile.gif'
 import dragon_girl_desktop from '@/assets/img/grab-ticket/dragon-girl-desktop.gif'
 import JourneyBeginFrame from '@/components/frame/JourneyBeginFrame'
 import Menu from '@/components/menu/Menu'

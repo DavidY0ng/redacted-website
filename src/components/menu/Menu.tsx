@@ -24,13 +24,8 @@ const menuVariants = {
   }
 }
 
-const imageContainerVariants = {
-  normal: { width: '50px' },
-  exit: { width: 'auto', transition: { duration: 0.01 } }
-}
-
 function MenuList() {
-  const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const menuList = [
     { name: 'home', path: '' },
     { name: 'about', path: '' },
@@ -131,9 +126,7 @@ export default function Menu() {
           alt="Icon 2"
           className="h-[50px] hover:cursor-pointer"
         />
-        <AnimatePresence>
-          {isMenuOpen && <MenuList mousePosition={mousePosition} />}
-        </AnimatePresence>
+        <AnimatePresence>{isMenuOpen && <MenuList />}</AnimatePresence>
       </div>
       <img
         src={icons.icon3}
