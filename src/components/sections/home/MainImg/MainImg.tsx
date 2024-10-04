@@ -41,7 +41,7 @@ export function Logo() {
   return (
     <motion.div
       className="absolute hidden md:block"
-      initial={{ opacity: 0, rotate: 30, scale: 0.8 }}
+      initial={{ opacity: 0, rotate: 30, scale: 0.9 }}
       animate={{ opacity: 1, rotate: 0, scale: 1 }}
       transition={{
         opacity: { duration: 1 }, // Opacity transition lasts 1 second
@@ -53,7 +53,7 @@ export function Logo() {
         <img
           src={logo}
           loading="eager"
-          className="h-screen w-full md:max-w-[1500px] lg:max-w-[2000px]"
+          className="h-screen w-full object-cover"
         ></img>
       </div>
     </motion.div>
