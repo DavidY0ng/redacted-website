@@ -41,15 +41,15 @@ export function Logo() {
   return (
     <motion.div
       className="absolute hidden md:block"
-      initial={{ opacity: 0, rotate: 30, scale: 0.9 }}
+      initial={{ opacity: 0, rotate: 50, scale: 0.9 }}
       animate={{ opacity: 1, rotate: 0, scale: 1 }}
       transition={{
-        opacity: { duration: 1 }, // Opacity transition lasts 1 second
+        opacity: { duration: 3 }, // Opacity transition lasts 1 second
         rotate: { delay: 1, duration: 1 }, // Rotation starts after opacity
         scale: { delay: 1, duration: 1 } // Scale starts after opacity
       }}
     >
-      <div>
+      <div className="overflow-hidden">
         <img
           src={logo}
           loading="eager"
