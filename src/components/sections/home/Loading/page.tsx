@@ -6,31 +6,20 @@ import slantedTrapezium from 'assets/img/sections/loading/slanted trapezium.png'
 import square from 'assets/img/sections/loading/square.png'
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import { useLoadingProgress } from '@/components/hooks/useLoadingProgress'
 
 function LoadingProgress({
   onProgressComplete
 }: {
   onProgressComplete: () => void
 }) {
-  const [progress, setProgress] = React.useState(0)
-  const duration = 5000 // 5 seconds
-  const steps = 100 // Number of steps
-  const interval = duration / steps // Time between each step
+  const { progress, isLoadingFinished } = useLoadingProgress({ duration: 4000 });
 
   React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          clearInterval(timer)
-          onProgressComplete() // Trigger the callback when progress reaches 100
-          return 100
-        }
-        return prevProgress + 1
-      })
-    }, interval)
-
-    return () => clearInterval(timer)
-  }, [interval, onProgressComplete])
+    if (isLoadingFinished) {
+      onProgressComplete()
+    }
+  }, [isLoadingFinished, onProgressComplete])
 
   return (
     <div className="items-center space-x-5 md:flex">

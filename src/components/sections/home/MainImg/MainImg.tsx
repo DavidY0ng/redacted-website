@@ -16,9 +16,9 @@ function GirlImg() {
       {/* desktop girl */}
       <motion.div
         className="hidden md:flex"
-        initial={{ rotate: 40, scale: 0.6, x: 900 }}
+        initial={{ rotate: 40, scale: 0.6, x: 400 }}
         animate={{ rotate: 0, scale: 1, x: 0 }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 1, delay: 8 }}
       >
         <img
           src={girl_gif}
@@ -44,9 +44,9 @@ export function Logo() {
       initial={{ opacity: 0, rotate: 50, scale: 0.9 }}
       animate={{ opacity: 1, rotate: 0, scale: 1 }}
       transition={{
-        opacity: { duration: 3 }, // Opacity transition lasts 1 second
-        rotate: { delay: 1, duration: 1 }, // Rotation starts after opacity
-        scale: { delay: 1, duration: 1 } // Scale starts after opacity
+        opacity: { duration: 3, delay: 7 }, // Opacity transition lasts 1 second
+        rotate: { delay: 7, duration: 1 }, // Rotation starts after opacity
+        scale: { delay: 7, duration: 1 } // Scale starts after opacity
       }}
     >
       <div className="overflow-hidden">
@@ -85,16 +85,16 @@ export default function MainImage() {
       </Transition> */}
       <Transition
         className="absolute bottom-0 z-10 md:bottom-auto"
-        custom={{ delay: 1.5 }}
+        custom={{ delay: 8 }}
       >
         <GirlImg />
       </Transition>
-      <Transition className="absolute z-20" custom={{ delay: 4 }}>
+      <Transition className="absolute z-20" custom={{ delay: 10 }}>
         <REGenImg />
       </Transition>
 
       {/* frame */}
-      <Transition className="h-screen" custom={{ delay: 3.5 }}>
+      <Transition className="h-screen" custom={{ delay: 10 }}>
         <WholeStandardFrame />
       </Transition>
     </div>
