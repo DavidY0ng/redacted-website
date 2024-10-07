@@ -45,8 +45,21 @@ export default function LandingPage() {
   }
 
   const loadingVariants = {
-    initial: { opacity: 1, y: 0 },
-    animate: { opacity: 0, y: 50, transition: { duration: 0.5 } }
+    initial: {
+      opacity: 1,
+      y: 0,
+      zIndex: 50 // Start with z-index 50
+    },
+    animate: {
+      opacity: 0,
+      y: 50,
+      zIndex: 0, // End with z-index 0
+      transition: {
+        duration: 0.5,
+        // Ensure z-index changes at the end of the animation
+        zIndex: { delay: 0.5 }
+      }
+    }
   }
 
   return (
@@ -101,10 +114,10 @@ export default function LandingPage() {
       </div>
 
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-red"
+        className="fixed inset-0 flex items-center justify-center bg-red"
         variants={loadingVariants}
         initial="initial"
-        animate={showLoading ? 'initial' : 'animate'}
+        animate={isLoadingFinished ? 'animate' : 'initial'}
       >
         <div className="absolute bottom-[20%] left-0">
           <LoadingPage />
