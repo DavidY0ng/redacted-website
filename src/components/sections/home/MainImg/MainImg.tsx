@@ -16,7 +16,7 @@ function GirlImg() {
       {/* desktop girl */}
       <motion.div
         className="hidden md:flex"
-        initial={{ rotate: 40, scale: 0.6, x: 400 }}
+        initial={{ rotate: 40, scale: 0.6, x: 600 }}
         animate={{ rotate: 0, scale: 1, x: 0 }}
         transition={{ duration: 1, delay: 8 }}
       >
@@ -85,7 +85,7 @@ export default function MainImage() {
       </Transition> */}
       <Transition
         className="absolute bottom-0 z-10 md:bottom-auto"
-        custom={{ delay: 8.5 }}
+        custom={{ delay: 8.25 }}
       >
         <GirlImg />
       </Transition>

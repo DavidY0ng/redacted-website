@@ -91,11 +91,11 @@ export default function Redacted() {
   return (
     <Transition
       className="h-full w-full relative flex justify-center"
-      custom={{ delay: 8.5 }}
+      custom={{ delay: 8.25 }}
     >
       <motion.div
         className="w-full flex gap-1 justify-center items-center"
-        initial={{ rotate: -40, scale: 0.6, x: -400 }}
+        initial={{ rotate: -40, scale: 0.6, x: -600 }}
         animate={{ rotate: 0, scale: 1, x: 0 }}
         transition={{ duration: 1, delay: 8 }}
       >
