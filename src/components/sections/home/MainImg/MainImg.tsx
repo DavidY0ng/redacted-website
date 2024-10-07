@@ -85,7 +85,7 @@ export default function MainImage() {
       </Transition> */}
       <Transition
         className="absolute bottom-0 z-10 md:bottom-auto"
-        custom={{ delay: 8 }}
+        custom={{ delay: 8.5 }}
       >
         <GirlImg />
       </Transition>

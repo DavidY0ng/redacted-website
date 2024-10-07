@@ -91,7 +91,7 @@ export default function Redacted() {
   return (
     <Transition
       className="h-full w-full relative flex justify-center"
-      custom={{ delay: 8 }}
+      custom={{ delay: 8.5 }}
     >
       <motion.div
         className="w-full flex gap-1 justify-center items-center"
