@@ -54,36 +54,34 @@ function GirlImg() {
 export function Logo() {
   const { isLoadingFinished } = useLoadingProgress()
 
-  const logoVariants = {
-    initial: { opacity: 0, rotate: 50, scale: 0.9 },
+  const imageVariants = {
+    initial: { rotate: 50, opacity: 0, scale: 0.9 },
     animate: {
       opacity: 1,
-      rotate: 0,
       scale: 1,
+      rotate: 0,
       transition: {
         opacity: { duration: 3 },
-        rotate: { duration: 2 },
-        scale: { duration: 2 }
+        scale: { duration: 2 },
+        rotate: { duration: 2 }
       }
     }
   }
 
   return (
-    <motion.div
-      className="absolute hidden md:block"
-      variants={logoVariants}
-      initial="initial"
-      animate={isLoadingFinished ? 'animate' : 'initial'}
-    >
+    <div className="absolute hidden md:block">
       <div className="overflow-hidden">
-        <img
+        <motion.img
           src={logo}
           loading="eager"
           className="h-screen w-full object-cover"
           alt="Logo"
+          variants={imageVariants}
+          initial="initial"
+          animate={isLoadingFinished ? 'animate' : 'initial'}
         />
       </div>
-    </motion.div>
+    </div>
   )
 }
 
