@@ -7,6 +7,7 @@ import d from 'assets/img/sections/landing/d.png'
 import a from 'assets/img/sections/landing/a.png'
 import c from 'assets/img/sections/landing/c.png'
 import t from 'assets/img/sections/landing/t.png'
+import { useLoadingProgress } from '@/components/hooks/useLoadingProgress'
 
 function LetterR() {
   return (
@@ -37,6 +38,7 @@ function CompleteWord() {
 }
 
 export default function Redacted() {
+  const { isLoadingFinished } = useLoadingProgress()
   const { scrollY } = useScroll()
   const [letterScaleRange, setLetterScaleRange] = React.useState([3.3, 1]) // Default for larger screens
   const [rPosition, setRPosition] = React.useState({
@@ -88,16 +90,24 @@ export default function Redacted() {
 
   const completeWordOpacity = useTransform(scrollY, [1000, 1500], [0, 1])
 
+  const rotateInVariants = {
+    initial: { rotate: 40, scale: 0.6, x: -600, opacity: 0 },
+    animate: {
+      rotate: 0,
+      scale: 1,
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.8, delay: 1.2 }
+    }
+  }
+
   return (
-    <Transition
-      className="h-full w-full relative flex justify-center"
-      custom={{ delay: 8.25 }}
-    >
+    <div className="h-full w-full relative flex justify-center">
       <motion.div
         className="w-full flex gap-1 justify-center items-center"
-        initial={{ rotate: -40, scale: 0.6, x: -600 }}
-        animate={{ rotate: 0, scale: 1, x: 0 }}
-        transition={{ duration: 1, delay: 8 }}
+        variants={rotateInVariants}
+        initial="initial"
+        animate={isLoadingFinished ? 'animate' : 'initial'}
       >
         <motion.div
           className=""
@@ -115,6 +125,6 @@ export default function Redacted() {
           <CompleteWord />
         </motion.div>
       </motion.div>
-    </Transition>
+    </div>
   )
 }
