@@ -21,13 +21,14 @@ function AboutGenesisPassContent({ isMobile }: { isMobile: boolean }) {
   }, [handleResize])
 
   return (
-    <div className="relative z-0 h-[100vh] md:h-[100vh] lg:h-[200vh] bg-black">
+    <div className="relative z-0 h-screen bg-black md:h-screen lg:h-[200vh]">
       <WholeFrame />
       <div className="relative size-full">
         <img
           src={lady}
           alt="Lady"
           className="absolute left-1/2 z-0 size-full -translate-x-1/2 object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 z-10">
           <div
@@ -38,7 +39,7 @@ function AboutGenesisPassContent({ isMobile }: { isMobile: boolean }) {
             }`}
           >
             <h2
-              className={`font-euroblack text-red mb-5 leading-tight mt-10 md:mt-10 lg:mt-0 ${
+              className={`font-euroblack text-red mb-5 mt-10 leading-tight md:mt-10 lg:mt-0 ${
                 isMobile
                   ? 'text-center text-4xl'
                   : 'text-left text-4xl md:text-5xl lg:text-[70px]'
@@ -47,7 +48,7 @@ function AboutGenesisPassContent({ isMobile }: { isMobile: boolean }) {
               HEADLINE HERE
             </h2>
             <div
-              className={`font-eurostile mb-5 text-white ${
+              className={`mb-5 font-eurostile text-white ${
                 isMobile
                   ? 'text-center text-base'
                   : 'text-left text-lg lg:text-xl'
