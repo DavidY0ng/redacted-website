@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react'
 import { Logo } from './MainImg/MainImg'
 import Menu from '@/components/menu/Menu'
 import { useLoadingProgress } from '../../hooks/useLoadingProgress'
+import Intro from '../intro/Intro'
 
 export default function LandingPage() {
   const { isLoadingFinished } = useLoadingProgress({ duration: 5000 })
@@ -63,7 +64,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="relative h-[500vh] w-full">
+    <div className="relative h-[480vh] w-full">
       <div className="relative h-[400vh] bg-[#b31e1e]">
         <div className="sticky top-5 z-10 h-0 w-full md:top-[50%]">
           <motion.div
@@ -108,9 +109,14 @@ export default function LandingPage() {
         </div>
 
         <div className="h-[150vh] bg-[#b31e1e]"></div>
+        <div className="xl:h-[130vh] bg-black">
+          <FireBg />
+        </div>
 
-        <FireBg />
-        <div className="h-screen w-full bg-black"></div>
+        <div className="relative z-30 h-screen">
+          <Intro />
+        </div>
+        {/* <div className="h-screen w-full bg-black"></div> */}
       </div>
 
       <motion.div
@@ -124,7 +130,7 @@ export default function LandingPage() {
         </div>
       </motion.div>
 
-      <div className="h-screen w-full bg-black"></div>
+      {/* <div className="h-screen w-full bg-black"></div> */}
     </div>
   )
 }

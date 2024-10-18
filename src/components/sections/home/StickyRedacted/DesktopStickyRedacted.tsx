@@ -91,13 +91,10 @@ export default function Redacted() {
   const completeWordOpacity = useTransform(scrollY, [1000, 1500], [0, 1])
 
   const rotateInVariants = {
-    initial: { rotate: 40, scale: 0.6, x: -600, opacity: 0 },
+    initial: { opacity: 0 },
     animate: {
-      rotate: 0,
-      scale: 1,
-      x: 0,
       opacity: 1,
-      transition: { duration: 0.8, delay: 1.2 }
+      transition: { duration: 2 }
     }
   }
 

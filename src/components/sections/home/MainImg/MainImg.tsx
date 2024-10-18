@@ -1,6 +1,4 @@
 import React from 'react'
-import { Transition } from '@/components/animation/slideIn'
-import girlImg from 'assets/img/sections/landing/character.webp'
 import girl_gif from 'assets/img/sections/landing/girl-gif.gif'
 import logo from 'assets/img/sections/landing/eye.webp'
 import reGen from 'assets/img/sections/landing/re-gen.webp'
@@ -13,13 +11,10 @@ function GirlImg() {
   const { isLoadingFinished } = useLoadingProgress()
 
   const desktopVariants = {
-    initial: { rotate: 40, scale: 0.6, x: 600, opacity: 0 },
+    initial: { opacity: 0 },
     animate: {
-      rotate: 0,
-      scale: 1,
-      x: 0,
       opacity: 1,
-      transition: { duration: 0.8, delay: 1.2 }
+      transition: { duration: 2 }
     }
   }
 
@@ -55,15 +50,11 @@ export function Logo() {
   const { isLoadingFinished } = useLoadingProgress()
 
   const imageVariants = {
-    initial: { rotate: 50, opacity: 0, scale: 0.9 },
+    initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      scale: 1,
-      rotate: 0,
       transition: {
-        opacity: { duration: 3 },
-        scale: { duration: 2 },
-        rotate: { duration: 2 }
+        opacity: { duration: 2 }
       }
     }
   }
@@ -92,7 +83,7 @@ function REGenImg() {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      transition: { duration: 1, delay: 2.2 }
+      transition: { duration: 1, delay: 3 }
     }
   }
   return (
@@ -122,7 +113,7 @@ function Frame() {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      transition: { duration: 1, delay: 2.2 }
+      transition: { duration: 1, delay: 1.8 }
     }
   }
   return (

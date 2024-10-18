@@ -43,7 +43,7 @@ export default function Intro() {
     visible: {
       x: 0,
       transition: {
-        duration: 1.6
+        duration: 2
       }
     }
   }

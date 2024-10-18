@@ -1,7 +1,7 @@
 import '../global.css'
 
 import LandingPage from './sections/home/Landing'
-import Intro from './sections/intro/Intro'
+// import Intro from './sections/intro/Intro'
 import About from './sections/about/About'
 import NFTCollection from './sections/nft-collection/Nft-collection'
 import Footer from './sections/footer/Footer'
@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <LandingPage />
-      <Intro />
+      {/* <Intro /> */}
       <About />
       <HumanRace />
       <NFTCollection />
