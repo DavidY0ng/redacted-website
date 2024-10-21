@@ -40,7 +40,7 @@ function CompleteWord() {
 export default function Redacted() {
   const { isLoadingFinished } = useLoadingProgress()
   const { scrollY } = useScroll()
-  const [letterScaleRange, setLetterScaleRange] = React.useState([3.3, 1]) // Default for larger screens
+  const [letterScaleRange, setLetterScaleRange] = React.useState([3, 1]) // Default for larger screens
   const [rPosition, setRPosition] = React.useState({
     top: '-200px',
     left: '0px'
@@ -94,7 +94,7 @@ export default function Redacted() {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      transition: { duration: 2 }
+      transition: { duration: 1, delay: 1 }
     }
   }
 
