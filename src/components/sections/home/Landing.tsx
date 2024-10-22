@@ -64,7 +64,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="relative h-[480vh] w-full">
+    <div className="relative h-[480vh] md:h-[480vh] w-full">
       <div className="relative h-[400vh] bg-[#b31e1e]">
         <div className="sticky top-5 z-10 h-0 w-full md:top-[50%]">
           <motion.div
@@ -109,14 +109,14 @@ export default function LandingPage() {
         </div>
 
         <div className="h-[150vh] bg-[#b31e1e]"></div>
-        <div className="xl:h-[130vh] bg-black">
+        <div className="h-[130vh] xl:h-[130vh] bg-black">
           <FireBg />
         </div>
 
         {/* <div className="relative z-30 h-screen">
           <Intro />
         </div> */}
-        <div className="h-screen w-full bg-black">
+        <div className=" w-full bg-black">
           <Intro />
         </div>
       </div>
