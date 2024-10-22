@@ -113,10 +113,12 @@ export default function LandingPage() {
           <FireBg />
         </div>
 
-        <div className="relative z-30 h-screen">
+        {/* <div className="relative z-30 h-screen">
+          <Intro />
+        </div> */}
+        <div className="h-screen w-full bg-black">
           <Intro />
         </div>
-        {/* <div className="h-screen w-full bg-black"></div> */}
       </div>
 
       <motion.div

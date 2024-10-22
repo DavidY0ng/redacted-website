@@ -11,8 +11,8 @@ import { useRef } from 'react'
 function Character() {
   return (
     <div className="relative w-full max-w-[400px] md:max-w-[450px]">
-      <img src={frame}></img>
-      <img className="absolute top-0" src={character}></img>
+      <img loading="lazy" src={frame}></img>
+      <img loading="lazy" className="absolute top-0" src={character}></img>
     </div>
   )
 }
@@ -36,14 +36,15 @@ function Font() {
 
 export default function Intro() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once: true, amount: 0.5 })
 
   const imageVariants = {
-    hidden: { x: '100%' },
+    hidden: { x: '100%', display: 'hidden' },
     visible: {
       x: 0,
+      display: 'block',
       transition: {
-        duration: 0.7
+        duration: 1
       }
     }
   }
@@ -53,63 +54,66 @@ export default function Intro() {
     visible: {
       opacity: 1,
       transition: {
-        delay: 1.8,
+        delay: 1.5,
         duration: 0.5
       }
     }
   }
 
   return (
-    <div className="relative h-screen bg-black overflow-hidden" ref={ref}>
+    <div ref={ref} className="overflow-hidden">
       <motion.div
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         variants={imageVariants}
+        className="relative h-screen  z-30 bg-black"
       >
-        <img
-          src={angel}
-          loading="lazy"
-          className="absolute h-screen w-full md:hidden"
-          alt="Angel (mobile)"
-        />
-        <img
-          src={desktop_angel}
-          loading="lazy"
-          className="absolute hidden h-screen w-full md:block"
-          alt="Angel (desktop)"
-        />
-      </motion.div>
-      <div className="flex justify-center">
-        <div className="absolute mx-auto flex h-screen w-full max-w-[1600px] flex-col items-center justify-around p-10 md:flex-row md:justify-between">
-          <motion.div
-            className="flex w-full justify-center"
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={fadeInVariants}
-          >
-            <Font />
-          </motion.div>
+        <motion.div>
+          <img
+            src={angel}
+            loading="lazy"
+            className="absolute h-screen w-full md:hidden"
+            alt="Angel (mobile)"
+          />
+          <img
+            src={desktop_angel}
+            loading="lazy"
+            className="absolute hidden h-screen w-full md:block"
+            alt="Angel (desktop)"
+          />
+        </motion.div>
+        <div className="flex justify-center">
+          <div className="absolute mx-auto flex h-screen w-full max-w-[1600px] flex-col items-center justify-around p-10 md:flex-row md:justify-between">
+            <motion.div
+              className="flex w-full justify-center"
+              initial="hidden"
+              animate={isInView ? 'visible' : 'hidden'}
+              variants={fadeInVariants}
+            >
+              <Font />
+            </motion.div>
 
-          <motion.div
-            className="flex w-full justify-center"
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={fadeInVariants}
-          >
-            <Character />
-          </motion.div>
+            <motion.div
+              className="flex w-full justify-center"
+              initial="hidden"
+              animate={isInView ? 'visible' : 'hidden'}
+              variants={fadeInVariants}
+            >
+              <Character />
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      <div className="absolute left-0 h-screen">
-        <LeftFrame />
-      </div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-        <Menu />
-      </div>
-      <div className="absolute right-0 h-screen">
-        <RightFrame />
-      </div>
+        <div className="absolute left-0 h-screen">
+          <LeftFrame />
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+          <Menu />
+        </div>
+        <div className="absolute right-0 h-screen">
+          <RightFrame />
+        </div>
+      </motion.div>
     </div>
   )
 }
