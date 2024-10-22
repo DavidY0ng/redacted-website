@@ -202,7 +202,7 @@ const MobileCarousel = () => {
         setIsVisible(entry.isIntersecting)
       },
       {
-        threshold: 0.1 // Trigger when 20% of the carousel is visible
+        threshold: 0.15 // Trigger when 15% of the carousel is visible
       }
     )
 
