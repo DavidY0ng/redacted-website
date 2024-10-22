@@ -85,10 +85,6 @@ const squadMembers = [
   }
 ]
 
-// Squad Members desktop images
-const desktopImages = squadMembers.map((member) => member.desktopImage)
-const mobileImages = squadMembers.map((member) => member.mobileImage)
-
 export default function Squad() {
   const [isMobile, setIsMobile] = React.useState(false)
 
@@ -148,7 +144,7 @@ function DesktopCarousel() {
     <Carousel
       orientation={isMobile ? 'vertical' : 'horizontal'}
       opts={{ align: 'start', loop: true }}
-      className="w-full bg-gray-500 md:max-w-[550px] lg:max-w-[800px] xl:max-w-[1100px]"
+      className="w-full md:max-w-[550px] lg:max-w-[800px] xl:max-w-[1100px]"
     >
       <CarouselContent className="">
         {squadMembers.map((member) => (
