@@ -19,8 +19,8 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/components/ui/carousel'
-import { Card, CardContent } from '@/components/ui/card'
-import React from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import React, { useEffect, useState, useRef } from 'react'
 
 const squadMembers = [
   {
@@ -173,42 +173,102 @@ function DesktopCarousel() {
   )
 }
 
-function MobileCarousel() {
-  const [isMobile, setIsMobile] = React.useState(false)
+const MobileCarousel = () => {
+  const [isMobile, setIsMobile] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const carouselRef = useRef(null)
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    axis: 'y',
+    align: 'start',
+    spacing: 24
+  })
+  const scrollTimeout = useRef(null)
+  const lastScrollPosition = useRef(0)
 
   // Handle screen size detection
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768)
-    handleResize() // Initial check
+    handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  // Set up intersection observer to detect when carousel is in viewport
+  useEffect(() => {
+    if (!carouselRef.current) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      {
+        threshold: 0.1 // Trigger when 20% of the carousel is visible
+      }
+    )
+
+    observer.observe(carouselRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  // Handle scroll-based carousel navigation
+  useEffect(() => {
+    if (!isMobile || !emblaApi || !isVisible) return // Only run when carousel is visible
+
+    const handleScroll = () => {
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current)
+      }
+
+      scrollTimeout.current = setTimeout(() => {
+        const currentScroll = window.scrollY
+        const scrollDelta = currentScroll - lastScrollPosition.current
+        const slideHeight =
+          emblaApi.scrollProgress() * emblaApi.scrollSnapList().length
+
+        if (Math.abs(scrollDelta) > 25) {
+          if (
+            scrollDelta > 0 &&
+            slideHeight < emblaApi.scrollSnapList().length - 1
+          ) {
+            emblaApi.scrollNext()
+          } else if (scrollDelta < 0 && slideHeight > 0) {
+            emblaApi.scrollPrev()
+          }
+        }
+
+        lastScrollPosition.current = currentScroll
+      }, 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current)
+      }
+    }
+  }, [isMobile, emblaApi, isVisible])
+
   return (
-    <Carousel
-      opts={{
-        align: 'start'
-      }}
-      orientation="vertical"
-      className="w-full max-w-xs md:hidden block"
-    >
-      <CarouselContent className="-mt-1 h-[580px]">
-        {squadMembers.map((member) => (
-          <CarouselItem
-            key={member.id}
-            className="flex basis-1/3 justify-center md:basis-1/3 lg:basis-1/4"
-          >
-            <div className="size-[50%] md:size-[95%] lg:size-[85%]">
-              <img
-                src={isMobile ? member.mobileImage : member.desktopImage}
-                alt={`Squad member ${member.id}`}
-                className=" object-cover"
-              />
+    <div ref={carouselRef} className="w-full max-w-xs md:hidden">
+      <div ref={emblaRef} className="overflow-hidden">
+        <div className="flex flex-col h-[600px]">
+          {squadMembers.map((member) => (
+            <div
+              key={member.id}
+              className="flex-none min-h-[200px] flex justify-center items-center pb-4"
+            >
+              <div className="w-1/2 h-full relative rounded-lg overflow-hidden">
+                <img
+                  src={isMobile ? member.mobileImage : member.desktopImage}
+                  alt={`Squad member ${member.id}`}
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
