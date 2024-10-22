@@ -37,7 +37,10 @@ function MobileGrabTicket() {
           <img src={coming_soon} className="w-3/4 max-w-[250px]"></img>
         </div>
       </div>
-      <img src={dragon_girl_mobile} className="absolute h-screen w-full"></img>
+      <img
+        src={dragon_girl_mobile}
+        className="absolute h-screen w-full object-cover"
+      ></img>
       <WholeStandardFrame />
     </div>
   )

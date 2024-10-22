@@ -151,7 +151,7 @@ function MobileHumanRace() {
           </motion.div>
 
           <motion.div
-            className="absolute left-0 top-0 size-full overflow-hidden "
+            className="absolute left-5 bottom-0 w-full h-[80%] overflow-hidden "
             initial={{ opacity: 0 }}
             animate={controls}
             variants={{
