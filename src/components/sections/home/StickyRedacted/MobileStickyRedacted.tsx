@@ -6,6 +6,7 @@ import d from 'assets/img/sections/landing/d.webp'
 import a from 'assets/img/sections/landing/a.webp'
 import c from 'assets/img/sections/landing/c.webp'
 import t from 'assets/img/sections/landing/t.webp'
+import { useEffect, useState } from 'react'
 
 function LetterR() {
   return (
@@ -35,32 +36,92 @@ function CompleteWord() {
   )
 }
 
+// export default function Redacted() {
+//   const { scrollY } = useScroll()
+//   const phoneHeight = typeof window !== 'undefined' ? window.innerHeight : 800 // Fallback to 800px if window is not defined
+
+//   // Calculate the initial positions based on phone height
+//   const initialRCenterPosition = `-${phoneHeight * 1.5}px`
+
+//   // Conditionally set the multiplier for the letter E based on screen height
+//   const eMultiplier = phoneHeight <= 720 ? 0.99 : 0.8
+//   const initialECenterPosition = `-${phoneHeight * eMultiplier}px`
+
+//   const letterScale = useTransform(scrollY, [0, 500], [3, 1])
+//   const rLeft = useTransform(scrollY, [0, 800], ['420%', '0%'])
+//   const rTop = useTransform(scrollY, [0, 800], [initialRCenterPosition, '0%'])
+
+//   const eLeft = useTransform(scrollY, [0, 800], ['310%', '0%'])
+//   // const eOffsetX = useTransform(scrollY, [0, 1000], ['0px', '47px'])
+//   // const eOffsetY = useTransform(scrollY, [0, 1000], ['0px', '-108px'])
+//   const eTop = useTransform(scrollY, [0, 800], [initialECenterPosition, '0%'])
+
+//   const completeWordOpacity = useTransform(scrollY, [800, 1300], [0, 1])
+
+//   return (
+//     <div className="h-full w-full relative flex justify-center">
+//       <Transition
+//         className={'w-[500px] flex gap-1 justify-center items-center'}
+//         custom={{ delay: 2 }}
+//       >
+//         <motion.div
+//           className=""
+//           style={{ scale: letterScale, x: rLeft, y: rTop }}
+//         >
+//           <LetterR />
+//         </motion.div>
+//         <motion.div
+//           className=""
+//           style={{ scale: letterScale, x: eLeft, y: eTop }}
+//         >
+//           <LetterE />
+//         </motion.div>
+//         <motion.div className="" style={{ opacity: completeWordOpacity }}>
+//           <CompleteWord />
+//         </motion.div>
+//       </Transition>
+//     </div>
+//   )
+// }
+
 export default function Redacted() {
   const { scrollY } = useScroll()
-  const phoneHeight = typeof window !== 'undefined' ? window.innerHeight : 800 // Fallback to 800px if window is not defined
+  const [rInitialTop, setRInitialTop] = useState('100%')
+  const [eInitialTop, setEInitialTop] = useState('450%')
 
-  // Calculate the initial positions based on phone height
-  const initialRCenterPosition = `-${phoneHeight * 1.3}px`
+  useEffect(() => {
+    const updatePositions = () => {
+      const viewportHeight = window.innerHeight
+      if (viewportHeight > 800) {
+        setRInitialTop('300%')
+        setEInitialTop('650%')
+      } else {
+        setRInitialTop('100%')
+        setEInitialTop('450%')
+      }
+    }
 
-  // Conditionally set the multiplier for the letter E based on screen height
-  const eMultiplier = phoneHeight <= 720 ? 0.7 : 0.8
-  const initialECenterPosition = `-${phoneHeight * eMultiplier}px`
+    // Set initial positions
+    updatePositions()
 
-  const letterScale = useTransform(scrollY, [0, 500], [4, 1])
+    // Update positions when window is resized
+    window.addEventListener('resize', updatePositions)
+    return () => window.removeEventListener('resize', updatePositions)
+  }, [])
+
+  const letterScale = useTransform(scrollY, [0, 500], [3, 1])
   const rLeft = useTransform(scrollY, [0, 800], ['420%', '0%'])
-  const rTop = useTransform(scrollY, [0, 800], [initialRCenterPosition, '0%'])
+  const rTop = useTransform(scrollY, [0, 800], [rInitialTop, '0%'])
 
   const eLeft = useTransform(scrollY, [0, 800], ['310%', '0%'])
-  // const eOffsetX = useTransform(scrollY, [0, 1000], ['0px', '47px'])
-  // const eOffsetY = useTransform(scrollY, [0, 1000], ['0px', '-108px'])
-  const eTop = useTransform(scrollY, [0, 800], [initialECenterPosition, '0%'])
+  const eTop = useTransform(scrollY, [0, 800], [eInitialTop, '0%'])
 
   const completeWordOpacity = useTransform(scrollY, [800, 1300], [0, 1])
 
   return (
     <div className="h-full w-full relative flex justify-center">
       <Transition
-        className={'w-[500px] flex gap-1 justify-center items-center'}
+        className="w-[500px] flex gap-1 justify-center items-start"
         custom={{ delay: 2 }}
       >
         <motion.div

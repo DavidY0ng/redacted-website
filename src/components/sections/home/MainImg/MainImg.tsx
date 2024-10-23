@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import girl_gif from 'assets/img/sections/landing/girl-gif.gif'
 import logo from 'assets/img/sections/landing/eye.webp'
 import reGen from 'assets/img/sections/landing/re-gen.webp'
@@ -9,6 +9,25 @@ import { useLoadingProgress } from '@/components/hooks/useLoadingProgress'
 
 function GirlImg() {
   const { isLoadingFinished } = useLoadingProgress()
+  const [mobileHeight, setMobileHeight] = useState('470px')
+
+  useEffect(() => {
+    const updateMobileHeight = () => {
+      const viewportHeight = window.innerHeight
+      // Set mobile height based on viewport height
+      // For taller phones, use 75% of viewport height
+      // For shorter phones, use 500px as minimum
+      const calculatedHeight = Math.max(500, viewportHeight * 0.65)
+      setMobileHeight(`${calculatedHeight}px`)
+    }
+
+    // Set initial height
+    updateMobileHeight()
+
+    // Update height when window is resized
+    window.addEventListener('resize', updateMobileHeight)
+    return () => window.removeEventListener('resize', updateMobileHeight)
+  }, [])
 
   const desktopVariants = {
     initial: { opacity: 0 },
@@ -39,13 +58,13 @@ function GirlImg() {
       <img
         src={girl_gif}
         loading="eager"
-        className="block h-screen max-h-[550px] w-full md:hidden object-cover"
+        style={{ height: mobileHeight }}
+        className="block w-full md:hidden object-cover"
         alt="Animated girl character (mobile)"
       />
     </div>
   )
 }
-
 export function Logo() {
   const { isLoadingFinished } = useLoadingProgress()
 
@@ -130,7 +149,7 @@ function Frame() {
 
 export default function MainImage() {
   return (
-    <div className="relative z-0 flex h-screen items-center justify-center overflow-hidden">
+    <div className="relative z-0 flex md:h-screen items-center justify-center overflow-hidden">
       {/* <Transition className="absolute hidden md:block" custom={{ delay: 2 }}>
         <Logo />
       </Transition> */}
