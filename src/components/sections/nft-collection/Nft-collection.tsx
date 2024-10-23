@@ -152,7 +152,7 @@ function MobileNFT() {
 
 function DesktopNFT() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount: 0.2 })
+  // Remove useInView since we don't need it anymore
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start']
@@ -170,9 +170,7 @@ function DesktopNFT() {
       <div className="w-full max-w-[1400px] relative h-full mx-auto">
         <motion.div
           style={{ y: moveUp1 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
+          // Remove initial and animate props that depend on isInView
           className="absolute right-[21%] top-[19%] z-10 w-1/2 "
         >
           <img
@@ -183,9 +181,6 @@ function DesktopNFT() {
         </motion.div>
         <motion.div
           style={{ y: moveUp2 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
           className={`absolute ${floating.bottomConditional} left-1/2  z-10 w-1/3`}
         >
           <img
@@ -196,9 +191,6 @@ function DesktopNFT() {
         </motion.div>
         <motion.div
           style={{ y: moveUp2 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
           className="absolute right-[0%] top-[35%]  z-10 w-1/4"
         >
           <img
@@ -209,9 +201,6 @@ function DesktopNFT() {
         </motion.div>
         <motion.div
           style={{ y: moveUp1 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
           className="absolute bottom-[6%] left-[10%]  z-10 w-1/4  max-w-[230px]"
         >
           <img
@@ -222,9 +211,6 @@ function DesktopNFT() {
         </motion.div>
         <motion.div
           style={{ y: moveUp2 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
           className="absolute bottom-[-15%] right-[10%] z-10 w-1/4  max-w-[200px]"
         >
           <img
@@ -235,9 +221,6 @@ function DesktopNFT() {
         </motion.div>
         <motion.div
           style={{ y: moveUp1 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
           className="absolute  bottom-[-10%] right-[32%] z-10 w-1/4  max-w-[200px]"
         >
           <img
@@ -248,9 +231,6 @@ function DesktopNFT() {
         </motion.div>
         <motion.div
           style={{ y: moveUp1 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
           className="absolute left-[12%] top-[40%]  z-10 w-1/4  max-w-[220px]"
         >
           <img
@@ -261,9 +241,6 @@ function DesktopNFT() {
         </motion.div>
         <motion.div
           style={{ y: moveUp1 }}
-          initial={{ y: 0 }}
-          animate={{ y: isInView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
           className="absolute right-0 top-[10%] z-10 w-1/2  max-w-[200px]"
         >
           <img
@@ -296,7 +273,6 @@ function DesktopNFT() {
     </div>
   )
 }
-
 export default function NFTCollection() {
   return (
     <>
