@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Transition } from '@/components/animation/slideIn'
-import r from 'assets/img/sections/landing/r.png'
-import e from 'assets/img/sections/landing/e.png'
-import d from 'assets/img/sections/landing/d.png'
-import a from 'assets/img/sections/landing/a.png'
-import c from 'assets/img/sections/landing/c.png'
-import t from 'assets/img/sections/landing/t.png'
+import r from 'assets/img/sections/landing/r.webp'
+import e from 'assets/img/sections/landing/e.webp'
+import d from 'assets/img/sections/landing/d.webp'
+import a from 'assets/img/sections/landing/a.webp'
+import c from 'assets/img/sections/landing/c.webp'
+import t from 'assets/img/sections/landing/t.webp'
 
 function LetterR() {
   return (
