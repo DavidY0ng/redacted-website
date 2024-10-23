@@ -18,7 +18,7 @@ function DesktopGrabTicket() {
       </div>
       <img
         src={dragon_girl_desktop}
-        className="absolute right-0 h-screen w-full"
+        className="absolute right-0 h-screen w-full object-cover"
       ></img>
       <WholeStandardFrame />
     </div>
