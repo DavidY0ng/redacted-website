@@ -30,7 +30,7 @@ function GirlImg() {
         <img
           src={girl_gif}
           loading="eager"
-          className="h-screen md:max-w-[400px] lg:max-w-[600px]"
+          className="h-screen object-fit md:max-w-[450px] lg:max-w-[500px] xl:max-w-[600px]"
           alt="Animated girl character"
         />
       </motion.div>
@@ -39,7 +39,7 @@ function GirlImg() {
       <img
         src={girl_gif}
         loading="eager"
-        className="block h-screen max-h-[550px] w-full md:hidden md:max-h-full"
+        className="block h-screen max-h-[550px] w-full md:hidden object-cover"
         alt="Animated girl character (mobile)"
       />
     </div>
@@ -96,12 +96,12 @@ function REGenImg() {
       <img
         src={reGen}
         loading="eager"
-        className="hidden md:block md:max-w-[900px] lg:max-w-[1300px]"
+        className="hidden md:block md:max-w-[900px] lg:max-w-[1300px] object-cover"
       ></img>
       <img
         src={mobileReGen}
         loading="eager"
-        className="block w-[90%] translate-y-[650%] md:hidden"
+        className="block w-[90%] translate-y-[650%] md:hidden object-cover"
       ></img>
     </motion.div>
   )

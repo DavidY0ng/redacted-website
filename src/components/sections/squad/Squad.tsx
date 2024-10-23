@@ -175,8 +175,7 @@ const MobileCarousel = () => {
   const carouselRef = useRef(null)
   const [emblaRef, emblaApi] = useEmblaCarousel({
     axis: 'y',
-    align: 'start',
-    spacing: 24
+    align: 'start'
   })
   const scrollTimeout = useRef(null)
   const lastScrollPosition = useRef(0)
