@@ -3,13 +3,13 @@ import bg from '@/assets/img/nft-collection/bg.webp'
 import fivek from '@/assets/img/nft-collection/5k.webp'
 import description from '@/assets/img/nft-collection/description.png'
 import React, { useRef } from 'react'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import floating from './floating.module.css'
 import MovingDots from './moving-dots/MovingDots'
 
 function MobileNFT() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount: 0.2 })
+  // Remove useInView since we don't need it anymore
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start']
@@ -24,9 +24,6 @@ function MobileNFT() {
 
       <motion.div
         style={{ y: moveUp1 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute right-[21%] top-[45%] z-10 w-1/2 "
       >
         <img
@@ -37,9 +34,6 @@ function MobileNFT() {
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute bottom-[20%] left-1/2  z-10 w-1/3"
       >
         <img
@@ -50,9 +44,6 @@ function MobileNFT() {
       </motion.div>
       <motion.div
         style={{ y: moveUp2 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute left-[30%] top-[35%]  z-10 w-1/4"
       >
         <img
@@ -63,9 +54,6 @@ function MobileNFT() {
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute bottom-[6%] left-[10%]  z-10 w-1/4"
       >
         <img
@@ -76,9 +64,6 @@ function MobileNFT() {
       </motion.div>
       <motion.div
         style={{ y: moveUp2 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute bottom-[-15%] right-[10%] z-10 w-1/4"
       >
         <img
@@ -89,9 +74,6 @@ function MobileNFT() {
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute  bottom-[-10%] right-[32%] z-10 w-1/4"
       >
         <img
@@ -102,9 +84,6 @@ function MobileNFT() {
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute left-[12%] top-[15%]  z-10 w-1/4"
       >
         <img
@@ -115,9 +94,6 @@ function MobileNFT() {
       </motion.div>
       <motion.div
         style={{ y: moveUp1 }}
-        initial={{ y: 0 }}
-        animate={{ y: isInView ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
         className="absolute right-0 top-[10%] z-10 w-1/2"
       >
         <img
