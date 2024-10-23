@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import lady from '@/assets/img/about-genesis-pass/lady.webp'
+import lady from '@/assets/img/about-genesis-pass/lady-2560.webp'
 import element1 from '@/assets/img/about-genesis-pass/element1.png'
 import WholeFrame from '@/components/frame/GenesisFrame'
 import { useMediaQuery } from '@/components/hooks/useMediaQuery'
@@ -24,6 +24,19 @@ function AboutGenesisPassContent({ isMobile }: { isMobile: boolean }) {
     <div className="relative z-0 h-screen bg-black md:h-screen lg:h-[200vh]">
       <WholeFrame />
       <div className="relative size-full">
+        {/* <img
+          srcSet="
+    /images/background-small.jpg 600w,
+    /images/background-medium.jpg 1200w,
+    /images/background-large.jpg 1920w
+  "
+          sizes="(max-width: 600px) 600px, 
+         (max-width: 1200px) 1200px, 
+         1920px"
+          src="/images/background-large.jpg"
+          alt="Background Image"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        /> */}
         <img
           src={lady}
           alt="Lady"
