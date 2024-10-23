@@ -93,11 +93,11 @@ export default function Redacted() {
     const updatePositions = () => {
       const viewportHeight = window.innerHeight
       if (viewportHeight > 800) {
-        setRInitialTop('300%')
-        setEInitialTop('650%')
+        setRInitialTop('-1100%')
+        setEInitialTop('-750%')
       } else {
-        setRInitialTop('100%')
-        setEInitialTop('450%')
+        setRInitialTop('-990%')
+        setEInitialTop('-660%')
       }
     }
 
@@ -121,7 +121,7 @@ export default function Redacted() {
   return (
     <div className="h-full w-full relative flex justify-center">
       <Transition
-        className="w-[500px] flex gap-1 justify-center items-start"
+        className="w-[500px] flex gap-1 justify-center items-center"
         custom={{ delay: 2 }}
       >
         <motion.div
