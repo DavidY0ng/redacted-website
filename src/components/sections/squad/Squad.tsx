@@ -113,7 +113,7 @@ export default function Squad() {
             gap="16px"
           />
         </div> */}
-        <div className="size-full justify-center hidden md:flex">
+        <div className="size-full justify-center hidden md:flex ">
           <DesktopCarousel />
         </div>
         <div className="flex justify-center">
@@ -220,7 +220,7 @@ const MobileCarousel = () => {
         const slideHeight =
           emblaApi.scrollProgress() * emblaApi.scrollSnapList().length
 
-        if (Math.abs(scrollDelta) > 25) {
+        if (Math.abs(scrollDelta) > 22) {
           if (
             scrollDelta > 0 &&
             slideHeight < emblaApi.scrollSnapList().length - 1
@@ -232,7 +232,7 @@ const MobileCarousel = () => {
         }
 
         lastScrollPosition.current = currentScroll
-      }, 20)
+      }, 17)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -245,15 +245,15 @@ const MobileCarousel = () => {
   }, [isMobile, emblaApi, isVisible])
 
   return (
-    <div ref={carouselRef} className="w-full max-w-xs md:hidden">
-      <div ref={emblaRef} className="overflow-hidden">
+    <div ref={carouselRef} className="w-full max-w-xs md:hidden  flex justify-center">
+      <div ref={emblaRef} className="overflow-hidden w-[200px]">
         <div className="flex flex-col h-[600px]">
           {squadMembers.map((member) => (
             <div
               key={member.id}
               className="flex-none min-h-[200px] flex justify-center items-center pb-4"
             >
-              <div className="w-1/2 h-full relative rounded-lg overflow-hidden">
+              <div className="w-4/5 h-full relative rounded-lg overflow-hidden">
                 <img
                   src={isMobile ? member.mobileImage : member.desktopImage}
                   alt={`Squad member ${member.id}`}
