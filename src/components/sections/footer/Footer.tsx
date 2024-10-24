@@ -122,7 +122,7 @@ export default function Footer() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              className="mx-auto w-1/3 sm:hidden z-[999]"
+              className="mx-auto w-1/3 sm:hidden z-10"
             >
               <img
                 src={BackToTop}
@@ -139,7 +139,7 @@ export default function Footer() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-            className="hidden sm:mx-auto sm:block z-[999]"
+            className="hidden sm:mx-auto sm:block z-10"
           >
             <img
               src={BackToTop}
