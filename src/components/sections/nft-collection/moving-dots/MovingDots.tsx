@@ -1,5 +1,5 @@
 import React from 'react'
-import loadingDots from '@/assets/img/nft-collection/pixel.png'
+import loadingDots from '@/assets/img/nft-collection/pixel.webp'
 import style from './dots.module.css'
 
 const MovingDots = () => {

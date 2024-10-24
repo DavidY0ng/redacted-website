@@ -7,8 +7,7 @@ import { WholeStandardFrame } from '@/components/frame/Frame'
 import { motion } from 'framer-motion'
 import { useLoadingProgress } from '@/components/hooks/useLoadingProgress'
 
-function GirlImg() {
-  const { isLoadingFinished } = useLoadingProgress()
+function MobileGirlImg() {
   const [mobileHeight, setMobileHeight] = useState('470px')
 
   useEffect(() => {
@@ -29,31 +28,8 @@ function GirlImg() {
     return () => window.removeEventListener('resize', updateMobileHeight)
   }, [])
 
-  const desktopVariants = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: { duration: 1, delay: 1 }
-    }
-  }
-
   return (
     <div className="">
-      {/* desktop girl */}
-      <motion.div
-        className="hidden md:flex"
-        variants={desktopVariants}
-        initial="initial"
-        animate={isLoadingFinished ? 'animate' : 'initial'}
-      >
-        <img
-          src={girl_gif}
-          loading="eager"
-          className="h-screen object-fit md:max-w-[450px] lg:max-w-[500px] xl:max-w-[600px]"
-          alt="Animated girl character"
-        />
-      </motion.div>
-
       {/* mobile girl */}
       <img
         src={girl_gif}
@@ -65,6 +41,71 @@ function GirlImg() {
     </div>
   )
 }
+
+function DesktopGirlImg() {
+  const { isLoadingFinished } = useLoadingProgress()
+  // const [maxWidth, setMaxWidth] = useState('450px')
+
+  // useEffect(() => {
+  //   const handleHeightResize = () => {
+  //     const screenHeight = window.innerHeight
+
+  //     if (screenHeight <= 700) {
+  //       // For shorter screens
+  //       setMaxWidth('380px')
+  //     } else if (screenHeight <= 900) {
+  //       // For medium-height screens
+  //       setMaxWidth('420px')
+  //     } else if (screenHeight <= 1000) {
+  //       // For taller screens
+  //       setMaxWidth('500px')
+  //     } else if (screenHeight <= 1100) {
+  //       // For taller screens
+  //       setMaxWidth('500px')
+  //     } else {
+  //       // For taller screens
+  //       setMaxWidth('450px')
+  //     }
+  //   }
+  //   // Add event listener for resize
+  //   window.addEventListener('resize', handleHeightResize)
+
+  //   // Call the function on initial render
+  //   handleHeightResize()
+
+  //   // Cleanup event listener on component unmount
+  //   return () => {
+  //     window.removeEventListener('resize', handleHeightResize)
+  //   }
+  // }, [])
+
+  const desktopVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: { duration: 1, delay: 1 }
+    }
+  }
+
+  return (
+    <div>
+      <motion.div
+        className="hidden md:flex"
+        variants={desktopVariants}
+        initial="initial"
+        animate={isLoadingFinished ? 'animate' : 'initial'}
+      >
+        <img
+          src={girl_gif}
+          loading="eager"
+          className="h-screen object-fit md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px]"
+          alt="Animated girl character"
+        />
+      </motion.div>
+    </div>
+  )
+}
+
 export function Logo() {
   const { isLoadingFinished } = useLoadingProgress()
 
@@ -154,7 +195,8 @@ export default function MainImage() {
         <Logo />
       </Transition> */}
       <div className="absolute bottom-0 z-10 md:bottom-auto">
-        <GirlImg />
+        <MobileGirlImg />
+        <DesktopGirlImg />
       </div>
       <div className="absolute z-20">
         <REGenImg />

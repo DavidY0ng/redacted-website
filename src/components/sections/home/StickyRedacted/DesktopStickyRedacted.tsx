@@ -37,10 +37,99 @@ function CompleteWord() {
   )
 }
 
+// export default function Redacted() {
+//   const { isLoadingFinished } = useLoadingProgress()
+//   const { scrollY } = useScroll()
+//   const [letterScaleRange, setLetterScaleRange] = React.useState([3, 1]) // Default for larger screens
+//   const [rPosition, setRPosition] = React.useState({
+//     top: '-200px',
+//     left: '0px'
+//   })
+//   const [ePosition, setEPosition] = React.useState({
+//     top: '200px',
+//     left: '-105px'
+//   })
+
+//   React.useEffect(() => {
+//     // Media query for screen size between 768px and 1024px
+//     const mediaQuery = window.matchMedia(
+//       '(min-width: 768px) and (max-width: 1024px)'
+//     )
+
+//     // Function to update scale and positions based on screen size
+//     const handleScreenResize = (event: any) => {
+//       if (event.matches) {
+//         setLetterScaleRange([3.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
+//         setRPosition({ top: '-200px', left: '0px' }) // Adjust R's position
+//         setEPosition({ top: '200px', left: '-100px' }) // Adjust E's position
+//       } else {
+//         setLetterScaleRange([4.4, 1]) // Set scale to 3.3 for other screens
+//         setRPosition({ top: '-200px', left: '-100px' }) // Default R position
+//         setEPosition({ top: '300px', left: '-205px' }) // Default E position
+//       }
+//     }
+
+//     // Add event listener for the media query
+//     mediaQuery.addEventListener('change', handleScreenResize)
+
+//     // Call the function on initial render
+//     handleScreenResize(mediaQuery)
+
+//     // Cleanup event listener on component unmount
+//     return () => {
+//       mediaQuery.removeEventListener('change', handleScreenResize)
+//     }
+//   }, [])
+
+//   const letterScale = useTransform(scrollY, [0, 500], letterScaleRange)
+//   const rLeft = useTransform(scrollY, [0, 1000], [rPosition.left, '0%'])
+//   const rTop = useTransform(scrollY, [0, 1000], [rPosition.top, '0%'])
+
+//   const eLeft = useTransform(scrollY, [0, 1000], [ePosition.left, '0%'])
+//   const eTop = useTransform(scrollY, [0, 1000], [ePosition.top, '0%'])
+
+//   const completeWordOpacity = useTransform(scrollY, [1000, 1500], [0, 1])
+
+//   const rotateInVariants = {
+//     initial: { opacity: 0 },
+//     animate: {
+//       opacity: 1,
+//       transition: { duration: 1, delay: 1 }
+//     }
+//   }
+
+//   return (
+//     <div className="h-full w-full relative flex justify-center">
+//       <motion.div
+//         className="w-full flex gap-1 justify-center items-center"
+//         variants={rotateInVariants}
+//         initial="initial"
+//         animate={isLoadingFinished ? 'animate' : 'initial'}
+//       >
+//         <motion.div
+//           className=""
+//           style={{ scale: letterScale, x: rLeft, y: rTop }}
+//         >
+//           <LetterR />
+//         </motion.div>
+//         <motion.div
+//           className=""
+//           style={{ scale: letterScale, x: eLeft, y: eTop }}
+//         >
+//           <LetterE />
+//         </motion.div>
+//         <motion.div className="" style={{ opacity: completeWordOpacity }}>
+//           <CompleteWord />
+//         </motion.div>
+//       </motion.div>
+//     </div>
+//   )
+// }
+
 export default function Redacted() {
   const { isLoadingFinished } = useLoadingProgress()
   const { scrollY } = useScroll()
-  const [letterScaleRange, setLetterScaleRange] = React.useState([3, 1]) // Default for larger screens
+  const [letterScaleRange, setLetterScaleRange] = React.useState([3, 1])
   const [rPosition, setRPosition] = React.useState({
     top: '-200px',
     left: '0px'
@@ -51,33 +140,65 @@ export default function Redacted() {
   })
 
   React.useEffect(() => {
-    // Media query for screen size between 768px and 1024px
-    const mediaQuery = window.matchMedia(
-      '(min-width: 768px) and (max-width: 1024px)'
-    )
+    const handleHeightResize = () => {
+      const screenHeight = window.innerHeight
 
-    // Function to update scale and positions based on screen size
-    const handleScreenResize = (event: any) => {
-      if (event.matches) {
-        setLetterScaleRange([3.5, 1]) // Set scale to 2.5 for screens 768px - 1024px
-        setRPosition({ top: '-200px', left: '0px' }) // Adjust R's position
-        setEPosition({ top: '200px', left: '-100px' }) // Adjust E's position
+      if (screenHeight <= 700) {
+        // For shorter screens
+        setLetterScaleRange([2.8, 1])
+        setRPosition({
+          top: '-150px',
+          left: '0px'
+        })
+        setEPosition({
+          top: '150px',
+          left: '-85px'
+        })
+      } else if (screenHeight <= 900) {
+        // For medium-height screens
+        setLetterScaleRange([4.2, 1])
+        setRPosition({
+          top: '-240px',
+          left: '-40px'
+        })
+        setEPosition({
+          top: '230px',
+          left: '-145px'
+        })
+      } else if (screenHeight <= 1000) {
+        // For medium-height screens
+        setLetterScaleRange([5.8, 1])
+        setRPosition({
+          top: '-310px',
+          left: '-200px'
+        })
+        setEPosition({
+          top: '300px',
+          left: '-305px'
+        })
       } else {
-        setLetterScaleRange([4.4, 1]) // Set scale to 3.3 for other screens
-        setRPosition({ top: '-200px', left: '-100px' }) // Default R position
-        setEPosition({ top: '300px', left: '-205px' }) // Default E position
+        // For taller screens
+        setLetterScaleRange([6.4, 1])
+        setRPosition({
+          top: '-380px',
+          left: '-200px'
+        })
+        setEPosition({
+          top: '300px',
+          left: '-305px'
+        })
       }
     }
 
-    // Add event listener for the media query
-    mediaQuery.addEventListener('change', handleScreenResize)
+    // Add event listener for resize
+    window.addEventListener('resize', handleHeightResize)
 
     // Call the function on initial render
-    handleScreenResize(mediaQuery)
+    handleHeightResize()
 
     // Cleanup event listener on component unmount
     return () => {
-      mediaQuery.removeEventListener('change', handleScreenResize)
+      window.removeEventListener('resize', handleHeightResize)
     }
   }, [])
 
